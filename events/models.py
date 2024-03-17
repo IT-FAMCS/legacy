@@ -3,6 +3,7 @@ import datetime
 
 
 class Event(models.Model):
+    short_title = models.CharField(max_length=10)
     title = models.CharField(max_length=50)
     description = models.TextField(default = "Отсутствует")
     dates = models.DateField(default = datetime.date.today)
