@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'information',
     'events',
     'department',
+    'frontend',
 ]
 
 AUTH_USER_MODEL = 'users.CustomUser'
