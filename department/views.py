@@ -1,35 +1,33 @@
-from django.views.generic import DetailView, ListView
-from django.views.generic.edit import CreateView
-from django.contrib.auth.mixins import LoginRequiredMixin
+from rest_framework import generics, viewsets
+from rest_framework.permissions import IsAuthenticated
 from .models import Department
-from django.urls import reverse
-from django.http import HttpResponseRedirect
-from .forms import DepartmentForm
+from .serializer import DepartmentSerializer
+from rest_framework.response import Response
 
-class DepartmentCreate(CreateView):
-    model = Department
-    fields = ['short_title', 'title']
-    template_name = ""
+class DepartmentList(generics.ListAPIView):
+    queryset = Department.objects.all()
+    serializer_class = DepartmentSerializer
 
-class DepartmentList(LoginRequiredMixin, ListView):
-    model = Department
-    template_name = ""
-    login_url = ""
 
-class DepartmentDetailView(LoginRequiredMixin, DetailView):
-    model = Department
-    template_name = ""
-    login_url = ""
+class DepartmentCreate(generics.CreateAPIView):
+    queryset = Department.objects.all()
+    serializer_class = DepartmentSerializer
+    
+class DepartmentUpdateView(viewsets.ModelViewSet):
+    queryset = Department.objects.all()
+    serializer_class = DepartmentSerializer
+    
+    lookup_field = "short_title"
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['form'] = DepartmentForm(instance=self.object)
-        return context
-    def post(self, request, *args, **kwargs):
-        self.object = self.get_object()
-        form = DepartmentForm(request.POST, instance=self.object)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse('', args=[self.object.id]))
-        else:
-            return self.render_to_response(self.get_context_data(form=form))
+    def retrieve(self, request, *args, **kwargs):
+        instance = self.get_object()
+        serializer = self.get_serializer(instance)
+        return Response(serializer.data)
+
+    def update(self, request, *args, **kwargs):
+        partial = kwargs.pop('partial', False)
+        instance = self.get_object()
+        serializer = self.get_serializer(instance, data=request.data, partial=partial)
+        serializer.is_valid(raise_exception=True)
+        self.perform_update(serializer)
+        return Response(serializer.data)
