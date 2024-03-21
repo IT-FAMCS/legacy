@@ -8,6 +8,9 @@ class Department(models.Model):
     work = models.TextField(default = "Отсутсвует")
     in_events = models.TextField(default = "Отсутсвует")
     FAQ =  models.TextField(default = "Отсутсвует")
-    links = models.TextField(default = "Отсутсвует")
     def __str__(self):
         return self.title
+class Links(models.Model):
+    event = models.ForeignKey(Department, related_name='links', on_delete=models.CASCADE)
+    link = models.TextField()
+    title = models.TextField()
