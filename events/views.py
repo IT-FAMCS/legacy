@@ -5,15 +5,15 @@ from .serializer import EventSerializer
 from rest_framework.response import Response
 
 class EventList(generics.ListAPIView):
-    queryset = Event.objects.all()
+    queryset = Event.objects.prefetch_related('links').all()
     serializer_class = EventSerializer
 
 class EventCreate(generics.CreateAPIView):
-    queryset = Event.objects.all()
+    queryset = Event.objects.prefetch_related('links').all()
     serializer_class = EventSerializer
     
 class EventUpdateView(viewsets.ModelViewSet):
-    queryset = Event.objects.all()
+    queryset = Event.objects.prefetch_related('links').all()
     serializer_class = EventSerializer
     
     lookup_field = "short_title"

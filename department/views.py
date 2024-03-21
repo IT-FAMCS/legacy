@@ -5,16 +5,16 @@ from .serializer import DepartmentSerializer
 from rest_framework.response import Response
 
 class DepartmentList(generics.ListAPIView):
-    queryset = Department.objects.all()
+    queryset = Department.objects.prefetch_related('links').all()
     serializer_class = DepartmentSerializer
 
 
 class DepartmentCreate(generics.CreateAPIView):
-    queryset = Department.objects.all()
+    queryset = Department.objects.prefetch_related('links').all()
     serializer_class = DepartmentSerializer
     
 class DepartmentUpdateView(viewsets.ModelViewSet):
-    queryset = Department.objects.all()
+    queryset = Department.objects.prefetch_related('links').all()
     serializer_class = DepartmentSerializer
     
     lookup_field = "short_title"
