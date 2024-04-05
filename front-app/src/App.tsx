@@ -1,6 +1,12 @@
 import React from "react";
+import ReactDOM from 'react-dom';
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import logo from "./logo.svg";
 import "./App.css";
+import home_component from "./components/home_component";
+import fandraiz_component from "./components/fandraiz_component";
+import rabochka_component from "./components/rabochka_component";
+import nauchka_component from "./components/nauchka_component";
 
 function App() {
   return (
@@ -19,6 +25,15 @@ function App() {
           Learn React
         </a>
       </header>
+      <BrowserRouter>
+      <Routes>
+        <Route path="/" element={home_component()} />
+        <Route path="/nauchka" element={nauchka_component()} />
+        <Route path="/fandraiz" element={fandraiz_component()} />
+        <Route path="/rabochka" element={rabochka_component()} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </BrowserRouter>
     </div>
   );
 }
