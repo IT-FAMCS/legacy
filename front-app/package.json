@@ -16,20 +16,17 @@
     "@types/node": "^16.18.91",
     "@types/react": "^18.2.70",
     "@types/react-dom": "^18.2.22",
-<<<<<<< HEAD
     "bbcode-to-react": "^0.2.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-=======
->>>>>>> 299c0a78e552be80b44b84ef66e7ae2592bd99df
     "react-scripts": "5.0.1",
     "styled-components": "^6.1.8",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
   "peerDependencies": {
-     "react": "^18.2.0", 
-     "react-dom": "^18.2.0" 
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
