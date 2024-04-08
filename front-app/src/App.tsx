@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import logo from "./logo.svg";
 import "./App.css";
-import home_component from "./components/home_component";
-import fandraiz_component from "./components/fandraiz_component";
-import rabochka_component from "./components/rabochka_component";
-import nauchka_component from "./components/nauchka_component";
+import home_component from "./Pages/HomePage";
+import fandraiz_component from "./Pages/FandraizPage";
+import rabochka_component from "./Pages/RabochkaPage";
+import nauchka_component from "./Pages/NauchkaPage";
 
 function App() {
   return (
