@@ -3,12 +3,13 @@ import logo from "./logo.svg";
 import parser from 'bbcode-to-react';
 import racoon from "./Raccoon.png"
 import "./App.css";
+import Button from '@mui/material/Button';
+
 
 function App() {
   return (
-
-    
-   <div className="App">
+      <div className="App">
+    <Button variant="contained">Contained</Button>
       <header className="App-header"> 
       <img src={racoon} alt="Raccoon logo" className="RaccconLogo"></img>
        <div className="Project">LEGACY</div>
