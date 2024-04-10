@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "./logo.svg";
 import parser from 'bbcode-to-react';
-import racoon from "./Raccoon.png"
+import racoon from "./images/Raccoon.png"
 import "./App.css";
 import Button from '@mui/material/Button';
 

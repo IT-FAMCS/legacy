@@ -6,6 +6,11 @@
   margin: 20%;
   
 }
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
 .App-header {
   background-color:  rgb(25, 70, 124);
   height: 60px;
@@ -30,6 +35,7 @@
   text-align: center;
   flex-wrap: wrap;
 }
+
 
 .App-footer {
   background-color:  rgb(25, 70, 124);
