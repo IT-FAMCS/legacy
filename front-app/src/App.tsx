@@ -15,19 +15,10 @@ import { createTheme, ThemeProvider, useTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
+import {darkTheme, lightTheme} from "./Constants/Theme"
 
 
-const darkTheme = createTheme({
-  palette: {
-    mode: 'dark',
-  },
-});
 
-const lightTheme = createTheme({
-  palette: {
-    mode: 'light',
-  },
-});
 
 function App() {
   const [themeMode, setThemeMode] = React.useState(() => {
