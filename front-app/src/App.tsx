@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import logo from "./logo.svg";
@@ -10,6 +11,7 @@ import FandraizPage from "./Pages/FandraizPage";
 import RabochkaPage from "./Pages/RabochkaPage";
 import NauchkaPage from "./Pages/NauchkaPage";
 import Button from '@mui/material/Button';
+import Login from "./Pages/LoginPage";
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
       <img src={racoon} alt="Raccoon logo" className="RaccconLogo"></img>
        <div className="Project">LEGACY</div>
       </header>
+      <Login></Login>
       <BrowserRouter>
       <Routes>
         <Route path="/" element={HomePage()} />

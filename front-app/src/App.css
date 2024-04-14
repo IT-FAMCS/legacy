@@ -51,3 +51,6 @@ font-size: 15px;
 
 }
 
+.error .MuiTextField-root .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+  border-color: red;
+}
