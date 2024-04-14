@@ -13,15 +13,14 @@ import HomePage from "./Pages/HomePage";
 import FandraizPage from "./Pages/FandraizPage";
 import RabochkaPage from "./Pages/RabochkaPage";
 import NauchkaPage from "./Pages/NauchkaPage";
-import Button from '@mui/material/Button';
 import LoginPage from "./Pages/LoginPage";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={racoon} alt="Raccoon logo" className="RaccconLogo"></img>
-        <div className="Project">LEGACY</div>
+      <div className="App">
+      <header className="App-header"> 
+      <img src={racoon} alt="Raccoon logo" className="RaccconLogo"></img>
+       <div className="Project">LEGACY</div>
       </header>
       <BrowserRouter>
       <Routes>
@@ -41,9 +40,14 @@ function App() {
               <MenuCard header={department.header} text={department.text} />
             );
           })}
-        </div>
-      </body>
+      </div>
+      
 
+
+
+
+      </body>
+        
       <footer className="App-footer">
         <div className="FooterText">ⓒ IT-FAMCS 2024</div>
       </footer>
