@@ -15,11 +15,19 @@
   background-color:  rgb(25, 70, 124);
   height: 60px;
   display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
   align-items: center;
   font-size: calc(10px + 2vmin);
   color:  #ffffff;
   font-weight: 700;
 }
+
+.HeaderLeft {
+  display: flex;
+  align-items: center; 
+}
+
 .Project {
   text-align: center;
   width: 150px;
