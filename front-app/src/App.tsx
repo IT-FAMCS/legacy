@@ -11,7 +11,7 @@ import FandraizPage from "./Pages/FandraizPage";
 import RabochkaPage from "./Pages/RabochkaPage";
 import NauchkaPage from "./Pages/NauchkaPage";
 import Button from '@mui/material/Button';
-import Login from "./Pages/LoginPage";
+import LoginPage from "./Pages/LoginPage";
 
 function App() {
   return (
@@ -20,13 +20,13 @@ function App() {
       <img src={racoon} alt="Raccoon logo" className="RaccconLogo"></img>
        <div className="Project">LEGACY</div>
       </header>
-      <Login></Login>
       <BrowserRouter>
       <Routes>
         <Route path="/" element={HomePage()} />
         <Route path="/nauchka" element={NauchkaPage()} />
         <Route path="/fandraiz" element={FandraizPage()} />
         <Route path="/rabochka" element={RabochkaPage()} />
+        <Route path="/login" element={LoginPage()} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>

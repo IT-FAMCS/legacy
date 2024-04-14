@@ -2,12 +2,12 @@ import * as React from "react";
 import { useState } from "react";
 import { Button, TextField } from "@mui/material";
 
-function Login() {
+function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const loginSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (username !== "correctUsername" || password !== "correctPassword") {
       setError(true);
@@ -17,7 +17,7 @@ function Login() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={error ? 'error' : ''}>
+    <form onSubmit={loginSubmit} className={error ? 'error' : ''}>
       <TextField
         label="Username"
         value={username}
@@ -45,4 +45,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default LoginPage;
