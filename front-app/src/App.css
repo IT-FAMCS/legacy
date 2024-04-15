@@ -1,10 +1,7 @@
-
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
   margin: 20%;
-  
 }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -12,45 +9,67 @@
   }
 }
 .App-header {
-  background-color:  rgb(25, 70, 124);
+  background-color: rgb(25, 70, 124);
   height: 60px;
   display: flex;
   align-items: center;
   font-size: calc(10px + 2vmin);
-  color:  #ffffff;
+  color: #ffffff;
   font-weight: 700;
 }
 .Project {
   text-align: center;
   width: 150px;
-} 
+}
 .RaccconLogo {
   width: 55px;
   height: 40px;
   margin-left: 20px;
 }
 
-
-.Buttons{
+.Buttons {
   text-align: center;
   flex-wrap: wrap;
 }
-
-
+.SectionName {
+  margin: 40px 10px 15px 10px;
+  font-size: 50px;
+  color: rgb(25, 70, 124);
+  font-weight: 700;
+}
+.SectionName2 {
+  margin: 25px 10px 15px 10px;
+  font-size: 18px;
+  color: rgb(0, 0, 0);
+}
+.Info {
+  font-size: 35px;
+  justify-content: center;
+  margin: 10px 20px 10px 20px;
+  justify-content: left;
+  text-decoration: none;
+  display: inline-block;
+  color: rgb(25, 70, 124);
+  text-align: center;
+}
+.Info li {
+  text-align: left;
+  font-weight: 600;
+}
 .App-footer {
-  background-color:  rgb(25, 70, 124);
+  background-color: rgb(25, 70, 124);
   height: 60px;
   display: flex;
   align-items: center;
- justify-content: center;
-
+  justify-content: center;
 }
 .FooterText {
-color:  #ffffff;
-font-size: 15px;
-
+  color: #ffffff;
+  font-size: 15px;
 }
+
 
 .error .MuiTextField-root .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
   border-color: red;
 }
+
