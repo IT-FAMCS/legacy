@@ -7,7 +7,6 @@ import { EventCard } from "../components/MenuCard";
 
 export default function HomePage() {
   return (
-
     <div className="HomePage">
       <div className="SectionName">Гайды по отделам</div>
       <div className="SectionName2">
@@ -64,6 +63,6 @@ export default function HomePage() {
           <a href="/history">История</a>
         </li>
       </ul>
-
+    </div>
   );
 }
