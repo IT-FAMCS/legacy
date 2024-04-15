@@ -1,10 +1,14 @@
 import React from "react";
+
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import parser from "bbcode-to-react";
 import racoon from "./images/Raccoon.png";
 import "./App.css";
 import { Button } from "@mui/material";
+
+
+
 import HomePage from "./Pages/HomePage";
 import FandraizPage from "./Pages/FandraizPage";
 import RabochkaPage from "./Pages/RabochkaPage";
@@ -42,43 +46,43 @@ function App() {
         <div className="Project">LEGACY</div>
       </header>
 
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={HomePage()} />
-          <Route path="/nauchka" element={NauchkaPage()} />
-          <Route path="/fandraiz" element={FandraizPage()} />
-          <Route path="/rabochka" element={RabochkaPage()} />
-          <Route path="/decoratorka" element={DecoratorkaPage()} />
-          <Route path="/it" element={ITPage()} />
-          <Route path="/korporativ" element={KorporativPage()} />
-          <Route path="/kreatorka" element={KreatorkaPage()} />
-          <Route path="/medyika" element={MedyikaPage()} />
-          <Route path="/photovideo" element={PhotoVideoPage()} />
-          <Route path="/tiktok" element={TikTokPage()} />
+     <body>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={HomePage()} />
+            <Route path="/nauchka" element={NauchkaPage()} />
+            <Route path="/fandraiz" element={FandraizPage()} />
+            <Route path="/rabochka" element={RabochkaPage()} />
+            <Route path="/decoratorka" element={DecoratorkaPage()} />
+            <Route path="/it" element={ITPage()} />
+            <Route path="/korporativ" element={KorporativPage()} />
+            <Route path="/kreatorka" element={KreatorkaPage()} />
+            <Route path="/medyika" element={MedyikaPage()} />
+            <Route path="/photovideo" element={PhotoVideoPage()} />
+            <Route path="/tiktok" element={TikTokPage()} />
 
-          <Route path="/drfpmi" element={DRfpmiPage()} />
-          <Route path="/drnauchki" element={DRNauchkiPage()} />
-          <Route path="/fpmushka" element={FPMushkaPage()} />
-          <Route path="/kapustnik" element={KapustnikPage()} />
-          <Route path="/mistermiss" element={MisterMissPage()} />
-          <Route path="/piar" element={PiarPage()} />
-          <Route path="/scienceconf" element={ScienceConfPage()} />
-          <Route path="/turtropa" element={TurTropaPage()} />
+            <Route path="/drfpmi" element={DRfpmiPage()} />
+            <Route path="/drnauchki" element={DRNauchkiPage()} />
+            <Route path="/fpmushka" element={FPMushkaPage()} />
+            <Route path="/kapustnik" element={KapustnikPage()} />
+            <Route path="/mistermiss" element={MisterMissPage()} />
+            <Route path="/piar" element={PiarPage()} />
+            <Route path="/scienceconf" element={ScienceConfPage()} />
+            <Route path="/turtropa" element={TurTropaPage()} />
 
-          <Route path="/dlyapredseda" element={DlyaPredsedaPage()} />
-          <Route path="/sovetyactivistu" element={SovetyActivistuPage()} />
-          <Route path="/menagement" element={MenagementPage()} />
-          <Route path="/faq" element={FAQPage()} />
-          <Route path="/kriteriip" element={KriteriiPPage()} />
-          <Route path="/kriteriiiskl" element={KriteriiIsklPage()} />
-          <Route path="/history" element={HistoryPage()} />
+            <Route path="/dlyapredseda" element={DlyaPredsedaPage()} />
+            <Route path="/sovetyactivistu" element={SovetyActivistuPage()} />
+            <Route path="/menagement" element={MenagementPage()} />
+            <Route path="/faq" element={FAQPage()} />
+            <Route path="/kriteriip" element={KriteriiPPage()} />
+            <Route path="/kriteriiiskl" element={KriteriiIsklPage()} />
+            <Route path="/history" element={HistoryPage()} />
 
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </BrowserRouter>
-
-      <body></body>
-
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </BrowserRouter>
+      </body>
+      
       <footer className="App-footer">
         <div className="FooterText">ⓒ IT-FAMCS 2024</div>
       </footer>
