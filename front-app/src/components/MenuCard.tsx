@@ -16,9 +16,9 @@ export const MenuCard = ({
       href={link}
       variant="contained"
       sx={{
-        width: 300,
+        minWidth: 300,
         color: "white",
-        height: 150,
+        minHeight: 150,
         margin: 5,
       }}
     >
