@@ -1,7 +1,9 @@
 import React from "react";
 
-import ReactDOM from "react-dom";
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { useState } from "react";
+import ReactDOM from 'react-dom';
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+
 import parser from "bbcode-to-react";
 import racoon from "./images/Raccoon.png";
 import "./App.css";
@@ -13,6 +15,7 @@ import HomePage from "./Pages/HomePage";
 import FandraizPage from "./Pages/FandraizPage";
 import RabochkaPage from "./Pages/RabochkaPage";
 import NauchkaPage from "./Pages/NauchkaPage";
+
 import DecoratorkaPage from "./Pages/DecoratorkaPage";
 import ITPage from "./Pages/ITPage";
 import KorporativPage from "./Pages/KorporativPage";
@@ -38,13 +41,17 @@ import HistoryPage from "./Pages/HistoryPage";
 import KriteriiIsklPage from "./Pages/KriteriiIsklPage";
 import KriteriiPPage from "./Pages/KriteriiPPage";
 
+import LoginPage from "./Pages/LoginPage";
+
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={racoon} alt="Raccoon logo" className="RaccconLogo"></img>
-        <div className="Project">LEGACY</div>
+      <div className="App">
+      <header className="App-header"> 
+      <img src={racoon} alt="Raccoon logo" className="RaccconLogo"></img>
+       <div className="Project">LEGACY</div>
       </header>
+
 
      <body>
         <BrowserRouter>
@@ -77,12 +84,13 @@ function App() {
             <Route path="/kriteriip" element={KriteriiPPage()} />
             <Route path="/kriteriiiskl" element={KriteriiIsklPage()} />
             <Route path="/history" element={HistoryPage()} />
+             <Route path="/login" element={LoginPage()} />
 
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </BrowserRouter>
       </body>
-      
+    
       <footer className="App-footer">
         <div className="FooterText">ⓒ IT-FAMCS 2024</div>
       </footer>
