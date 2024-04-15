@@ -8,6 +8,7 @@ export default function HomePage() {
           <p>nauchka</p>
           <p>rabochka</p>
           <p>fandraiz</p>
+          <p>login</p>
     </div>
   )
 }
