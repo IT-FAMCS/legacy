@@ -2,6 +2,7 @@ import { Button } from "@mui/material";
 import { departmentsInfo } from "../constants/departments-info";
 import { eventsInfo } from "../constants/events-info";
 
+
 export const MenuCard = ({
   header,
   text,
@@ -14,12 +15,20 @@ export const MenuCard = ({
   return (
     <Button
       href={link}
+}: {
+  header: string;
+  text: string;
+}) => {
+  return (
+    <Button
+
       variant="contained"
       sx={{
         minWidth: 300,
         color: "white",
         minHeight: 150,
         margin: 5,
+        margin: 10,
       }}
     >
       <div className="ButtonText">

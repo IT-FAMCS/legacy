@@ -12,6 +12,7 @@ export const departmentsInfo = [
   {
     header: "Фандрайз",
     text: "Информация про отдел фандрайзинга",
+
     link: "/fandraiz",
   },
   {
