@@ -1,23 +1,19 @@
 import * as React from "react";
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
-import logo from "./logo.svg";
-import parser from 'bbcode-to-react';
-import racoon from "./images/Raccoon.png"
+import parser from "bbcode-to-react";
 import "./App.css";
+import { departmentsInfo } from "./constants/departments-info";
+import { MenuCard } from "./components/MenuCard";
 import HomePage from "./Pages/HomePage";
 import FandraizPage from "./Pages/FandraizPage";
 import RabochkaPage from "./Pages/RabochkaPage";
 import NauchkaPage from "./Pages/NauchkaPage";
-import IconButton from '@mui/material/IconButton';
-import Button from '@mui/material/Button';
+import Header from "./components/Header"
+import Footer from "./components/Footer"
 import { createTheme, ThemeProvider, useTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import Brightness4Icon from '@mui/icons-material/Brightness4';
-import Brightness7Icon from '@mui/icons-material/Brightness7';
-import {darkTheme, lightTheme} from "./Constants/Theme"
-
-
+import {darkTheme, lightTheme} from "./constants/Theme"
 
 
 function App() {
@@ -26,11 +22,11 @@ function App() {
     return savedTheme ? savedTheme : 'light';
   });
 
-  const toggleTheme = () => {
-    const newTheme = themeMode === 'light' ? 'dark' : 'light';
-    setThemeMode(newTheme);
-    localStorage.setItem('theme', newTheme); 
-  };
+  // const toggleTheme = () => {
+  //   const newTheme = themeMode === 'light' ? 'dark' : 'light';
+  //   setThemeMode(newTheme);
+  //   localStorage.setItem('theme', newTheme); 
+  // };
 
   const currentTheme = themeMode === 'light' ? lightTheme : darkTheme;
 
@@ -38,15 +34,7 @@ function App() {
     <ThemeProvider theme={currentTheme}>
       <CssBaseline />
       <div className="App">
-      <header className="App-header"> 
-      <div className="HeaderLeft">
-        <img src={racoon} alt="Raccoon logo" className="RaccconLogo"></img>
-        <div className="Project">LEGACY</div>
-      </div>
-      <IconButton sx={{ ml: 1 }} onClick={toggleTheme} color="inherit">
-        {themeMode === 'dark' ? <Brightness4Icon /> : <Brightness7Icon />}
-      </IconButton>
-        </header>
+      <Header></Header>
       <BrowserRouter>
       <Routes>
         <Route path="/" element={HomePage()} />
@@ -59,41 +47,19 @@ function App() {
 
       <body>
         <div className="Buttons">
-      <Button variant="contained"  sx={{width: 300, color: 'white', height: 150, margin: 10}}>
-         <div className="ButtonText"> 
-         <h2>Рабочка</h2>
-         <div>Рабочее направление</div>
-         </div>
-      </Button>
-      <Button variant="contained"  sx={{width: 300, color: 'white', height: 150, margin: 10}}>
-      <div className="ButtonText"> 
-         <h2>Научка</h2>
-         <div>Научное направление</div>
-         </div>
-        </Button>
-      <Button variant="contained"  sx={{width: 300, color: 'white', height: 150, margin: 10}}>
-
-      <div className="ButtonText"> 
-         <h2>Фандрайз</h2>
-         <div>Направление фандрайза</div>
-         </div>
-      </Button>
-      </div>
-      
-
-
-
-
-      </body>
-        
-      <footer className="App-footer">
-        <div className="FooterText">
-        ⓒ IT-FAMCS 2024
+          {departmentsInfo.map((department) => {
+            return (
+              <MenuCard header={department.header} text={department.text} />
+            );
+          })}
         </div>
-      </footer>
+      </body>
+
+      <Footer></Footer>
     </div>
     </ThemeProvider>
   );
 }
 
-  export default App;
+
+  export default App; 
