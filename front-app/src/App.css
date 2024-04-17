@@ -61,15 +61,18 @@
   height: 60px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 .FooterText {
   color: #ffffff;
   font-size: 15px;
 }
 
-
-.error .MuiTextField-root .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+.error
+  .MuiTextField-root
+  .MuiOutlinedInput-root
+  .MuiOutlinedInput-notchedOutline {
   border-color: red;
 }
-
