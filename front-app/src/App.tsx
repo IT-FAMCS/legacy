@@ -56,7 +56,6 @@ function App() {
   const currentTheme = themeMode === 'light' ? lightTheme : darkTheme;
 
   return (
-
     <ThemeProvider theme={currentTheme}>
     <CssBaseline />
     <div className="App">
@@ -105,4 +104,4 @@ function App() {
   );
 }
 
-export default App;
+export default App; 

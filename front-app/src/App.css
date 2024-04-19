@@ -48,7 +48,7 @@
 .SectionName2 {
   margin: 25px 10px 15px 10px;
   font-size: 18px;
-  color: rgb(0, 0, 0);
+  /* color: rgb(0, 0, 0); */
 }
 .Info {
   font-size: 35px;
@@ -80,4 +80,3 @@
 .error .MuiTextField-root .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
   border-color: red;
 }
-
