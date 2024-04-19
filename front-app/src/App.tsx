@@ -1,15 +1,13 @@
 import React from "react";
 
 import { useState } from "react";
-import ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import ReactDOM from "react-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 
 import parser from "bbcode-to-react";
 import racoon from "./images/Raccoon.png";
 import "./App.css";
 import { Button } from "@mui/material";
-
-
 
 import HomePage from "./Pages/HomePage";
 import FandraizPage from "./Pages/FandraizPage";
@@ -42,18 +40,17 @@ import KriteriiIsklPage from "./Pages/KriteriiIsklPage";
 import KriteriiPPage from "./Pages/KriteriiPPage";
 
 import LoginPage from "./Pages/LoginPage";
-
+import CreatorsPage from "./Pages/CreatorsPage";
 
 function App() {
   return (
-      <div className="App">
-      <header className="App-header"> 
-      <img src={racoon} alt="Raccoon logo" className="RaccconLogo"></img>
-       <div className="Project">LEGACY</div>
+    <div className="App">
+      <header className="App-header">
+        <img src={racoon} alt="Raccoon logo" className="RaccconLogo" />
+        <div className="Project">LEGACY</div>
       </header>
 
-
-     <body>
+      <main>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={HomePage()} />
@@ -84,15 +81,26 @@ function App() {
             <Route path="/kriteriip" element={KriteriiPPage()} />
             <Route path="/kriteriiiskl" element={KriteriiIsklPage()} />
             <Route path="/history" element={HistoryPage()} />
-             <Route path="/login" element={LoginPage()} />
+
+            <Route path="/login" element={LoginPage()} />
+
+            <Route path="/creators" element={CreatorsPage()} />
 
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </BrowserRouter>
-      </body>
-    
+      </main>
+
       <footer className="App-footer">
         <div className="FooterText">ⓒ IT-FAMCS 2024</div>
+        <Button
+          className="CreatorButton"
+          href="/creators"
+          variant="outlined"
+          sx={{ color: "white", borderColor: "white" }}
+        >
+          О создателях
+        </Button>
       </footer>
     </div>
   );

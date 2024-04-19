@@ -4,6 +4,8 @@ import { MenuCard } from "../components/MenuCard";
 import "../App.css";
 import { eventsInfo } from "../constants/events-info";
 import { EventCard } from "../components/MenuCard";
+import { mainInfo } from "../constants/main-info";
+import { MainInfoCard } from "../components/MenuCard";
 
 export default function HomePage() {
   return (
@@ -37,32 +39,16 @@ export default function HomePage() {
           );
         })}
       </div>
-      <div className="SectionName">Общая Информация</div>
-      <ul className="Info">
-        <li>
-          <a href="/dlyapredseda">Для председателя</a>
-        </li>
-        <li>
-          <a href="/sovetyactivistu">Советы новому активисту</a>
-        </li>
-        <li>
-          <a href="/menagement">
-            Как пробовать пробиться в менеджмент/управление
-          </a>
-        </li>
-        <li>
-          <a href="/faq">FAQ для активиста</a>
-        </li>
-        <li>
-          <a href="/kriteriip">Критерии поощрений</a>
-        </li>
-        <li>
-          <a href="/kriteriiiskl">Критерии исключений</a>
-        </li>
-        <li>
-          <a href="/history">История</a>
-        </li>
-      </ul>
+
+      <div className="SectionName">Общая информация</div>
+
+      <div className="Buttons">
+        {mainInfo.map((department) => {
+          return (
+            <MainInfoCard header={department.header} link={department.link} />
+          );
+        })}
+      </div>
     </div>
   );
 }
