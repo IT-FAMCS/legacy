@@ -4,26 +4,12 @@ import { MenuCard } from "../components/MenuCard";
 import "../App.css";
 import { eventsInfo } from "../constants/events-info";
 import { EventCard } from "../components/MenuCard";
-import {darkTheme, lightTheme} from "../constants/Theme"
+import {darkTheme, lightTheme} from "../constants/themes"
 import { createTheme, ThemeProvider, useTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 
 export default function HomePage() {
-  const [themeMode, setThemeMode] = React.useState(() => {
-    const savedTheme = localStorage.getItem('theme');
-    return savedTheme ? savedTheme : 'light';
-  });
-
-  const toggleTheme = () => {
-    const newTheme = themeMode === 'light' ? 'dark' : 'light';
-    setThemeMode(newTheme);
-    localStorage.setItem('theme', newTheme); 
-  };
-
-  const currentTheme = themeMode === 'light' ? lightTheme : darkTheme;
   return (
-    <ThemeProvider theme={currentTheme}>
-      <CssBaseline />
     <div className="HomePage">
       <div className="SectionName">Гайды по отделам</div>
       <div className="SectionName2">
@@ -81,6 +67,5 @@ export default function HomePage() {
         </li>
       </ul>
     </div>
-    </ThemeProvider>
   );
 }

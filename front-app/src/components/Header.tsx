@@ -1,9 +1,8 @@
-import React, { useState } from 'react'; 
+import React from 'react'; 
 import racoon from "../images/Raccoon.png";
 import IconButton from '@mui/material/IconButton';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
-import { darkTheme, lightTheme } from "../constants/Theme";
 
 interface HeaderProps {
   themeMode: string;
