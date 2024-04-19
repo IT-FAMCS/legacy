@@ -46,11 +46,11 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={racoon} alt="Raccoon logo" className="RaccconLogo"></img>
+        <img src={racoon} alt="Raccoon logo" className="RaccconLogo" />
         <div className="Project">LEGACY</div>
       </header>
 
-      <body>
+      <main>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={HomePage()} />
@@ -89,7 +89,7 @@ function App() {
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </BrowserRouter>
-      </body>
+      </main>
 
       <footer className="App-footer">
         <div className="FooterText">ⓒ IT-FAMCS 2024</div>
