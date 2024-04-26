@@ -1,4 +1,3 @@
-import React from "react";
 import { departmentsInfo } from "../constants/departments-info";
 import { MenuCard } from "../components/MenuCard";
 import "../App.css";
