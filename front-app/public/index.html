@@ -9,6 +9,20 @@
       name="description"
       content="Web site created using create-react-app"
     />
+    <style>
+      .loading {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .loading figcaption {
+        text-align: center;
+        font-size: 56px;
+      }
+    </style>
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -28,7 +42,14 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div id="root">
+      <div class="loading">
+        <figure>
+          <img width="400" height="400" src="raccoon-loading.gif" />
+          <figcaption>Загрузка...</figcaption>
+        </figure>
+      </div>
+    </div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
