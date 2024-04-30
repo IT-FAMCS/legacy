@@ -79,3 +79,8 @@
   .MuiOutlinedInput-notchedOutline {
   border-color: red;
 }
+
+::selection {
+  color: white;
+  background-color: rgb(25, 70, 124);
+}
