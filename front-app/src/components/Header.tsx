@@ -20,24 +20,15 @@ export const HeaderComponent = ({ toggleTheme, themeMode }: HeaderProps) => {
       <div className="App-header__block">
        <Button
         href={"/"}
-        variant="contained"
-          sx={{
-          width: 150,
-          color: "white",
-          height: 40,
-          margin: 5,
-        }}
+        variant="outlined"
+        sx={{ color: "white", borderColor: "white", marginX: "10px" }}
       >
-        <div className="ButtonText">
-          <h2>Home</h2>
-        </div>
+        На главную
       </Button>
       <IconButton sx={{ ml: 1 }} onClick={toggleTheme} color="inherit">
         {themeMode === "dark" ? <Brightness4Icon /> : <Brightness7Icon />}
       </IconButton>
       </div>
-      
-      
     </header>
   );
 };
