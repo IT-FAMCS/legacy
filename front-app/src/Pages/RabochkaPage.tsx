@@ -34,6 +34,7 @@ export default function RabochkaPage() {
     //   work: "фыавфыв",
     //   in_events: "фыав",
     //   FAQ: "фыавфы",
+
     // }).then((data) => {
     //   console.log(data);
     // });
