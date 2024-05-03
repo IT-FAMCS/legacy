@@ -1,60 +1,24 @@
-import React, { useEffect } from "react";
-
-const postData = async (url = "", data = {}) => {
-  const response = await fetch(url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  });
-  return response.json();
-};
-
-const getData = async (url = "") => {
-  const response = await fetch(url, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-  return response.json();
-};
+import { useEffect } from "react";
+import { GetDepartments } from "../api/GetDepartments";
+import { ChangeDepartment } from "../api/ChangeDepartment";
+import { DepartmentLink } from "../interfaces/department";
 
 export default function RabochkaPage() {
+  //const data = GetDepartments();
   useEffect(() => {
-    // getData("http://127.0.0.1:8000/api/departments");
-
-    // postData("http://127.0.0.1:8000/api/departments/create/", {
-    //   links: [{ link: "saf", title: "sfjnkd" }],
-    //   short_title: "ыфвафыва",
-    //   title: "фывафы",
-    //   description: "фывафыв",
-    //   structure: "фывафывв",
-    //   work: "фыавфыв",
-    //   in_events: "фыав",
-    //   FAQ: "фыавфы",
-
-    // }).then((data) => {
-    //   console.log(data);
+    // ChangeDepartment({
+    //   data: {
+    //     links: [{ link: "sdf", title: "fwr" }],
+    //     short_title: "helloj",
+    //     title: "helloj",
+    //     description: "helloj",
+    //     structure: "helloj",
+    //     work: "helloj",
+    //     in_events: "helloj",
+    //     FAQ: "helloj",
+    //   },
     // });
-
-    var xhr = new XMLHttpRequest();
-
-    xhr.open("POST", "http://127.0.0.1:8000/api/departments/create/", true);
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.send(
-      JSON.stringify({
-        links: [],
-        short_title: "ыфвафыва",
-        title: "фывафы",
-        description: "фывафыв",
-        structure: "фывафывв",
-        work: "фыавфыв",
-        in_events: "фыав",
-        FAQ: "фыавфы",
-      })
-    );
+    GetDepartments();
   }, []);
 
   return <div>Я есть RabochkaPage</div>;

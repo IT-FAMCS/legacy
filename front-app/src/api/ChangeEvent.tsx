@@ -1,11 +1,11 @@
-import { EventI } from "../interfaces/event";
+import { EventInfo } from "../interfaces/event";
 
 export function useChangeEvent({
   eventName,
   newInfo,
 }: {
   eventName: string;
-  newInfo: EventI;
+  newInfo: EventInfo;
 }) {
   return fetch("url").then(); //post
 }
