@@ -1,4 +1,4 @@
-export const FetchPost = async (url = "", data = {}) => {
+export const fetchPost = async (url = "", data = {}) => {
   const response = await fetch(url, {
     method: "POST",
     headers: {

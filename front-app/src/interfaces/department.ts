@@ -4,7 +4,7 @@ export interface DepartmentLink {
 }
 
 export interface DepatmentInfo {
-  links?: DepartmentLink[];
+  links: DepartmentLink[];
   short_title: string;
   title: string;
   description: string;

@@ -1,25 +1,9 @@
 import { useEffect } from "react";
-import { GetDepartments } from "../api/GetDepartments";
-import { ChangeDepartment } from "../api/ChangeDepartment";
 import { DepartmentLink } from "../interfaces/department";
+import useDepartment from "../hooks/useDepartment";
 
 export default function RabochkaPage() {
-  //const data = GetDepartments();
-  useEffect(() => {
-    // ChangeDepartment({
-    //   data: {
-    //     links: [{ link: "sdf", title: "fwr" }],
-    //     short_title: "helloj",
-    //     title: "helloj",
-    //     description: "helloj",
-    //     structure: "helloj",
-    //     work: "helloj",
-    //     in_events: "helloj",
-    //     FAQ: "helloj",
-    //   },
-    // });
-    GetDepartments();
-  }, []);
-
+  const useDep = useDepartment();
+  useDep.getDepartments("123");
   return <div>Я есть RabochkaPage</div>;
 }
