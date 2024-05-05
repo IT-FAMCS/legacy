@@ -5,13 +5,11 @@ import { DepatmentInfo } from "../interfaces/department";
 
 export default function useDepartment() {
   async function changeDepartment({ data }: { data: DepatmentInfo }) {
-    return await fetchPost(CREATE_DEPARTMENT, data).then((data) => {});
+    return await fetchPost(CREATE_DEPARTMENT, data);
   }
 
   async function getDepartments(department = "") {
-    return await fetchGet(GET_DEPARTMENT + department).then((data) => {
-      console.log(data);
-    });
+    return (await fetchGet(GET_DEPARTMENT + department)).json();
   }
 
   return { changeDepartment, getDepartments };
