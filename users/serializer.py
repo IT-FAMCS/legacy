@@ -1,9 +1,7 @@
-from django.contrib.auth import get_user_model
-from rest_framework.authtoken.models import Token
-from rest_framework import serializers
 from django.contrib.auth import get_user_model, password_validation
 from django.contrib.auth.models import BaseUserManager
-
+from rest_framework import serializers
+from rest_framework.authtoken.models import Token
 
 User = get_user_model()
 
@@ -16,12 +14,12 @@ class AuthUserSerializer(serializers.ModelSerializer):
     auth_token = serializers.SerializerMethodField()
 
     class Meta:
-         model = User
-         fields = ('id', 'email', 'username', 'is_active', 'is_staff')
-         read_only_fields = ('id', 'is_active', 'is_staff')
+        model = User
+        fields = ('id', 'email', 'username', 'is_active', 'is_staff', 'auth_token')
+        read_only_fields = ('id', 'is_active', 'is_staff')
     
     def get_auth_token(self, obj):
-        token = Token.objects.create(user=obj)
+        token, created = Token.objects.get_or_create(user=obj)
         return token.key
 
 class EmptySerializer(serializers.Serializer):
@@ -42,6 +40,10 @@ class UserRegisterSerializer(serializers.ModelSerializer):
     def validate_password(self, value):
         password_validation.validate_password(value)
         return value
+
+    def create(self, validated_data):
+        user = User.objects.create_user(**validated_data)
+        return user
 
 class PasswordChangeSerializer(serializers.Serializer):
     current_password = serializers.CharField(required=True)
