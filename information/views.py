@@ -1,19 +1,22 @@
 from rest_framework import generics, viewsets
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from .models import Information
 from .serializer import InfoSerializer
 from rest_framework.response import Response
 
 class InfoList(generics.ListAPIView):
+    permission_classes = [IsAuthenticated, IsAdminUser]
     queryset = Information.objects.all()
     serializer_class = InfoSerializer
 
 
 class InfoCreate(generics.CreateAPIView):
+    permission_classes = [IsAuthenticated, IsAdminUser]
     queryset = Information.objects.all()
     serializer_class = InfoSerializer
     
 class InfoUpdateView(viewsets.ModelViewSet):
+    permission_classes = [IsAuthenticated, IsAdminUser]
     queryset = Information.objects.all()
     serializer_class = InfoSerializer
     
