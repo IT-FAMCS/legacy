@@ -1,19 +1,22 @@
 from rest_framework import generics, viewsets
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from .models import Department
 from .serializer import DepartmentSerializer
 from rest_framework.response import Response
 
 class DepartmentList(generics.ListAPIView):
+    permission_classes = [IsAuthenticated, IsAdminUser]
     queryset = Department.objects.prefetch_related('links').all()
     serializer_class = DepartmentSerializer
 
 
 class DepartmentCreate(generics.CreateAPIView):
+    permission_classes = [IsAuthenticated, IsAdminUser]
     queryset = Department.objects.prefetch_related('links').all()
     serializer_class = DepartmentSerializer
     
 class DepartmentUpdateView(viewsets.ModelViewSet):
+    permission_classes = [IsAuthenticated, IsAdminUser]
     queryset = Department.objects.prefetch_related('links').all()
     serializer_class = DepartmentSerializer
     
