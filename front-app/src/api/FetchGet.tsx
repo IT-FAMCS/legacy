@@ -5,5 +5,5 @@ export const fetchGet = async (url = "") => {
       "Content-Type": "application/json",
     },
   });
-  return response;
+  return response.json();
 };

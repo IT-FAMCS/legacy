@@ -9,7 +9,7 @@ export default function useDepartment() {
   }
 
   async function getDepartments(department = "") {
-    return (await fetchGet(GET_DEPARTMENT + department)).json();
+    return await fetchGet(GET_DEPARTMENT + department);
   }
 
   return { changeDepartment, getDepartments };
