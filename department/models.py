@@ -1,7 +1,7 @@
 from django.db import models
 
 class Department(models.Model):
-    short_title = models.CharField(max_length=10)
+    short_title = models.CharField(max_length=10, unique=True)
     title = models.TextField()
     description = models.TextField(default = "Отсутсвует")
     structure = models.TextField(default = "Отсутсвует")

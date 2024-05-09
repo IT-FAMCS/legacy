@@ -3,7 +3,7 @@ import datetime
 import json
 
 class Event(models.Model):
-    short_title = models.CharField(max_length=10)
+    short_title = models.CharField(max_length=10, unique=True)
     title = models.CharField(max_length=50)
     description = models.TextField(default = "Отсутствует")
     dates = models.DateField(default = datetime.date.today)

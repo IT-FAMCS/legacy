@@ -2,7 +2,7 @@ from django.contrib.auth import get_user_model, logout
 from django.core.exceptions import ImproperlyConfigured
 from rest_framework import viewsets, status
 from rest_framework.decorators import action
-from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.permissions import AllowAny, IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
 from .utils import get_and_authenticate_user, create_user_account
 from . import serializer
