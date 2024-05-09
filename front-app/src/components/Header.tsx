@@ -1,4 +1,3 @@
-import React from "react";
 import racoon from "../images/Raccoon.png";
 import IconButton from "@mui/material/IconButton";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
@@ -18,16 +17,16 @@ export const HeaderComponent = ({ toggleTheme, themeMode }: HeaderProps) => {
         <div className="Project">LEGACY</div>
       </div>
       <div className="App-header__block">
-       <Button
-        href={"/"}
-        variant="outlined"
-        sx={{ color: "white", borderColor: "white", marginX: "10px" }}
-      >
-        На главную
-      </Button>
-      <IconButton sx={{ ml: 1 }} onClick={toggleTheme} color="inherit">
-        {themeMode === "dark" ? <Brightness4Icon /> : <Brightness7Icon />}
-      </IconButton>
+        <Button
+          href={"/"}
+          variant="outlined"
+          sx={{ color: "white", borderColor: "white", marginX: "10px" }}
+        >
+          На главную
+        </Button>
+        <IconButton sx={{ ml: 1 }} onClick={toggleTheme} color="inherit">
+          {themeMode === "dark" ? <Brightness4Icon /> : <Brightness7Icon />}
+        </IconButton>
       </div>
     </header>
   );

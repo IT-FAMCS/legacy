@@ -3,6 +3,7 @@
   pointer-events: none;
   margin: 20%;
 }
+
 .App-header {
   background-color: rgb(25, 70, 124);
   height: 60px;
@@ -22,7 +23,7 @@
 
 .App-header__block {
   display: flex;
-  align-items: center; 
+  align-items: center;
 }
 
 .Project {

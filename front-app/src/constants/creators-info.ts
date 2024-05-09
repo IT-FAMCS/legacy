@@ -20,7 +20,6 @@ export const creatorsInfo = [
     tg: "@Aiki_v",
     git: "essaon",
   },
-
   {
     title: "Станулевич Женя",
     tg: "@stanulpych_60",
@@ -30,5 +29,10 @@ export const creatorsInfo = [
     title: "Женя Рысь",
     tg: "@pblcb_ev",
     git: "PBLCbGomel",
+  },
+  {
+    title: "Пупко Ксюша",
+    tg: "@stanulpych_60",
+    git: "stanulpych",
   },
 ];
