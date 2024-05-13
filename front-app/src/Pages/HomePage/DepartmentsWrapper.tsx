@@ -4,12 +4,12 @@ import { MenuCard } from "../../components/MenuCard";
 export function DepartmentsWrapper() {
   return (
     <>
-      <div className="SectionName">Гайды по отделам</div>
-      <div className="SectionName2">
+      <div className="section-name">Гайды по отделам</div>
+      <div className="section-name_second">
         Здесь вы можете узнать актуальную информацию про отделы Проектного
         Направления Студенческого Сoвета ФПМИ
       </div>
-      <div className="Buttons">
+      <div className="buttons">
         {departmentsInfo.map((department) => {
           return (
             <MenuCard

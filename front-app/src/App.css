@@ -1,10 +1,4 @@
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-  margin: 20%;
-}
-
-.App-header {
+.app-header {
   background-color: rgb(25, 70, 124);
   height: 60px;
   display: flex;
@@ -21,51 +15,37 @@
   z-index: 1000;
 }
 
-.App-header__block {
+.app-header__block {
   display: flex;
   align-items: center;
 }
 
-.Project {
+.project-name {
   text-align: center;
   width: 150px;
 }
-.RaccconLogo {
+.racccon-logo {
   width: 55px;
   height: 40px;
   margin-left: 20px;
 }
 
-.Buttons {
+.buttons {
   text-align: center;
   flex-wrap: wrap;
 }
-.SectionName {
+.section-name {
   margin: 40px 10px 15px 10px;
   font-size: 50px;
   color: rgb(25, 70, 124);
   font-weight: 700;
 }
-.SectionName2 {
+.section-name_second {
   margin: 25px 10px 15px 10px;
   font-size: 18px;
-  /* color: rgb(0, 0, 0); */
 }
-.Info {
-  font-size: 35px;
-  justify-content: center;
-  margin: 10px 20px 10px 20px;
-  justify-content: left;
-  text-decoration: none;
-  display: inline-block;
-  color: rgb(25, 70, 124);
-  text-align: center;
-}
-.Info li {
-  text-align: left;
-  font-weight: 600;
-}
-.App-footer {
+
+.app-footer {
   background-color: rgb(25, 70, 124);
   height: 60px;
   display: flex;
@@ -74,7 +54,7 @@
   padding-left: 30px;
   padding-right: 30px;
 }
-.FooterText {
+.app-footer__name {
   color: #ffffff;
   font-size: 15px;
 }
@@ -90,3 +70,23 @@
   color: white;
   background-color: rgb(25, 70, 124);
 }
+
+/*.Info {
+  font-size: 35px;
+  justify-content: center;
+  margin: 10px 20px 10px 20px;
+  justify-content: left;
+  text-decoration: none;
+  display: inline-block;
+  color: rgb(25, 70, 124);
+  text-align: center;
+}
+.Info li {
+  text-align: left;
+  font-weight: 600;
+}
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+  margin: 20%;
+}*/

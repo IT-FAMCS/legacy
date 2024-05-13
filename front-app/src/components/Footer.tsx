@@ -2,8 +2,8 @@ import { Button } from "@mui/material";
 
 export default function Footer() {
   return (
-    <footer className="App-footer">
-      <div className="FooterText">ⓒ IT-FAMCS 2024</div>
+    <footer className="app-footer">
+      <div className="app-footer__name">ⓒ IT-FAMCS 2024</div>
       <Button
         className="CreatorButton"
         href="/creators"

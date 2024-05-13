@@ -4,12 +4,12 @@ import { eventsInfo } from "../../constants/events-info";
 export function EventsWrapper() {
   return (
     <>
-      <div className="SectionName">Гайды по подготовке к мероприятиям</div>
-      <div className="SectionName2">
+      <div className="section-name">Гайды по подготовке к мероприятиям</div>
+      <div className="section-name_second">
         Здесь вы можете узнать актуальную информацию про мероприятия/подготовку
         к мероприятиям Проектного Направления Студенческого Сoвета ФПМИ
       </div>
-      <div className="Buttons">
+      <div className="buttons">
         {eventsInfo.map((event) => {
           return (
             <EventCard
