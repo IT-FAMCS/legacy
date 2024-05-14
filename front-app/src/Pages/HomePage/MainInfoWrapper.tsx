@@ -4,8 +4,8 @@ import { mainInfo } from "../../constants/main-info";
 export function MainInfoWrapper() {
   return (
     <>
-      <div className="SectionName">Общая информация</div>
-      <div className="Buttons">
+      <div className="section-name">Общая информация</div>
+      <div className="buttons">
         {mainInfo.map((mainI) => {
           return (
             <MainInfoCard

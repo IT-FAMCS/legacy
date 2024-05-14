@@ -3,7 +3,7 @@ import { CreatorCard } from "../components/MenuCard";
 
 export default function CreatorsPage() {
   return (
-    <div className="Buttons">
+    <div className="buttons">
       {creatorsInfo.map((creator) => {
         return (
           <CreatorCard

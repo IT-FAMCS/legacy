@@ -11,12 +11,12 @@ interface HeaderProps {
 
 export const HeaderComponent = ({ toggleTheme, themeMode }: HeaderProps) => {
   return (
-    <header className="App-header">
-      <div className="App-header__block">
-        <img src={racoon} alt="Raccoon logo" className="RaccconLogo"></img>
-        <div className="Project">LEGACY</div>
+    <header className="app-header">
+      <div className="app-header__block">
+        <img src={racoon} alt="Raccoon logo" className="racccon-logo"></img>
+        <div className="project-name">LEGACY</div>
       </div>
-      <div className="App-header__block">
+      <div className="app-header__block">
         <Button
           href={"/"}
           variant="outlined"
