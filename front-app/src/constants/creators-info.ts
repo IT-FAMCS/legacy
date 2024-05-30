@@ -2,7 +2,7 @@ export const creatorsInfo = [
   {
     title: "Савицкая Анна-Мария",
     tg: "@s_anmaria",
-    git: "san-set",
+    git: "sans-et",
   },
 
   {
