@@ -17,7 +17,7 @@ function LoginPage() {
   };
 
   return (
-    <form onSubmit={loginSubmit} className={error ? 'error' : ''}>
+    <form onSubmit={loginSubmit} className={`login-form ${error ? 'error' : ''}`}>
       <TextField
         label="Username"
         value={username}
