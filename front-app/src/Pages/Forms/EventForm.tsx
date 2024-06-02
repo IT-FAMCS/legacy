@@ -70,6 +70,9 @@ export function EventForm({}) {
           rows={4}
           defaultValue={info.structure}
           name="structure"
+          onChange={(e) => {
+            setNewInfo({ ...newInfo, structure: e.target.value });
+          }}
         />
         <TextField
           label="Work"
@@ -77,6 +80,9 @@ export function EventForm({}) {
           rows={4}
           defaultValue={info.work}
           name="work"
+          onChange={(e) => {
+            setNewInfo({ ...newInfo, work: e.target.value });
+          }}
         />
         <TextField
           label="FAQ"
@@ -84,6 +90,9 @@ export function EventForm({}) {
           rows={4}
           defaultValue={info.FAQ}
           name="FAQ"
+          onChange={(e) => {
+            setNewInfo({ ...newInfo, FAQ: e.target.value });
+          }}
         />
         <TextField label="Links" name="links" />
       </Box>
