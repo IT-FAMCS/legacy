@@ -1,18 +1,26 @@
 import * as React from "react";
 import { useState } from "react";
 import { Button, TextField } from "@mui/material";
+import useAuth from "../hooks/useAuth";
 
 function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
+  const { login, isAuthenticated } = useAuth();
 
-  const loginSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const loginSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (username !== "correctUsername" || password !== "correctPassword") {
+    try {
+      await login(username, password);
+      if (!isAuthenticated) {
+        setError(true);
+      }
+      else{
+        console.log("Ура!!!")
+      }
+    } catch (error) {
       setError(true);
-    } else {
-      alert("Ура!!!")
     }
   };
 
