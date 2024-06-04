@@ -11,6 +11,7 @@ function RegistrationPage() {
     password: "",
     confirmPassword: "",
   });
+  
   const [popupOpen, setPopupOpen] = useState(false);
   const [popupMessage, setPopupMessage] = useState("");
   const { register, isAuthenticated } = useAuth();
