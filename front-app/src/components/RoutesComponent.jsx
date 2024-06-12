@@ -11,28 +11,7 @@ import LoginPage from "../Pages/LoginPage";
 import CreatorsPage from "../Pages/CreatorsPage";
 import DepartmentTemplate from '../Pages/department-template/department-template'
 import EventTemplate from '../Pages/event-template/event-template'
-
-const departments = [{short_title: 'fandraiz'},
-  {short_title: 'rabochka'},
-  {short_title: 'nauchka'},
-  {short_title: 'decoratorka'},
-  {short_title: 'it'},
-  {short_title: 'korporativ'},
-  {short_title: 'kreatorka'},
-  {short_title: 'medyika'},
-  {short_title: 'photovideo'},
-  {short_title: 'tiktok'},
-]
-
-const events = [{short_title: 'drfpmi'},
-  {short_title: 'drnauchki'},
-  {short_title: 'fpmushka'},
-  {short_title: 'kapustnik'},
-  {short_title: 'mistermiss'},
-  {short_title: 'piar'},
-  {short_title: 'scienceconf'},
-  {short_title: 'turtropa'},
-]
+import {departments, events} from '../constants'
 
 function RoutesComponent() {
   const routes = [
