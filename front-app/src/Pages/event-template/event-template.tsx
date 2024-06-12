@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { EventForm } from "../Forms/EventForm";
+import { EventForm } from "../forms/EventForm";
 import { Button } from "@mui/material";
 
 export default function EventTemplate({eventTitle}: {eventTitle:string}) {

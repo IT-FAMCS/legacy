@@ -1,6 +1,6 @@
 import { Button } from "@mui/material";
 import { useState } from "react";
-import { DepartmentForm } from "../Forms/DepartmentForm";
+import { DepartmentForm } from "../forms/DepartmentForm";
 
 export default function DepartmentTemplate({departmentName}: {departmentName: string}) {
     const [isFormVisible, setIsFormVisible] = useState(false);
