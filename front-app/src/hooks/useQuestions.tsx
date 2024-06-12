@@ -1,6 +1,6 @@
 import { fetchGet } from "../api/FetchGet";
 import { fetchPost } from "../api/FetchPost";
-import { CREATE_QUESTION, GET_QUESTIONS } from "../constants/questions-url";
+import { CREATE_QUESTION, GET_QUESTIONS } from "../Constants/questions-url";
 import { QuestionInfo } from "../interfaces/question";
 
 export default function useQuestions() {
