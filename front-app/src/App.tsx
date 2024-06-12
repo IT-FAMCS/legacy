@@ -7,7 +7,7 @@ import { HeaderComponent } from "./components/Header";
 import Footer from "./components/Footer";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import { darkTheme, lightTheme } from "./constants/themes";
+import { darkTheme, lightTheme } from "./Constants/themes";
 
 function App() {
   const [themeMode, setThemeMode] = React.useState(() => {

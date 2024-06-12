@@ -1,5 +1,5 @@
 import { Route, Routes, Navigate } from "react-router-dom";
-import HomePage from "../Pages/HomePage/HomePage";
+import HomePage from "../Pages/home-page/HomePage";
 import DlyaPredsedaPage from "../Pages/DlyaPredsedaPage";
 import SovetyActivistuPage from "../Pages/SovetyActivistuPage";
 import MenagementPage from "../Pages/MenagementPage";
@@ -11,7 +11,7 @@ import LoginPage from "../Pages/LoginPage";
 import CreatorsPage from "../Pages/CreatorsPage";
 import DepartmentTemplate from '../Pages/department-template/department-template'
 import EventTemplate from '../Pages/event-template/event-template'
-import {departments, events} from '../constants'
+import {departments, events} from '../Constants'
 
 function RoutesComponent() {
   const routes = [
