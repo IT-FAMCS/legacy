@@ -28,20 +28,40 @@ import KriteriiIsklPage from "../Pages/KriteriiIsklPage";
 import KriteriiPPage from "../Pages/KriteriiPPage";
 import LoginPage from "../Pages/LoginPage";
 import CreatorsPage from "../Pages/CreatorsPage";
+import DepartmentTemplate from '../Pages/department-template/department-template'
+
+const departments = [{short_title: 'fandraiz'},
+  {short_title: 'rabochka'},
+  {short_title: 'nauchka'},
+  {short_title: 'decoratorka'},
+  {short_title: 'it'},
+  {short_title: 'korporativ'},
+  {short_title: 'kreatorka'},
+  {short_title: 'medyika'},
+  {short_title: 'photovideo'},
+  {short_title: 'tiktok'},
+]
+
+
+const events = [{short_title: 'drfpmi'},
+  {short_title: 'drnauchki'},
+  {short_title: 'fpmushka'},
+  {short_title: 'kapustnik'},
+  {short_title: 'mistermiss'},
+  {short_title: 'piar'},
+  {short_title: 'scienceconf'},
+  {short_title: 'turtropa'},
+]
+
 
 function RoutesComponent() {
   const routes = [
     { path: "/", element: <HomePage /> },
-    { path: "/fandraiz", element: <FandraizPage /> },
-    { path: "/rabochka", element: <RabochkaPage /> },
-    { path: "/nauchka", element: <NauchkaPage /> },
-    { path: "/decoratorka", element: <DecoratorkaPage /> },
-    { path: "/it", element: <ITPage /> },
-    { path: "/korporativ", element: <KorporativPage /> },
-    { path: "/kreatorka", element: <KreatorkaPage /> },
-    { path: "/medyika", element: <MedyikaPage /> },
-    { path: "/photovideo", element: <PhotoVideoPage /> },
-    { path: "/tiktok", element: <TikTokPage /> },
+    ...departments.map((department) => {
+        return {
+          path: `/${department.short_title}`, element: <DepartmentTemplate departmentName={department.short_title}/>
+        }
+    }),
     { path: "/drfpmi", element: <DRfpmiPage /> },
     { path: "/drnauchki", element: <DRNauchkiPage /> },
     { path: "/fpmushka", element: <FPMushkaPage /> },
