@@ -1,4 +1,4 @@
-import { departmentsInfo } from "../../constants/departments-info";
+import { departmentsInfo } from "../../Constants/departments-info";
 import { MenuCard } from "../../components/MenuCard";
 
 export function DepartmentsWrapper() {

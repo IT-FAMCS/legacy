@@ -33,7 +33,7 @@ function App() {
             <RoutesComponent />
           </BrowserRouter>
         </main>
-
+        
         <Footer></Footer>
       </div>
     </ThemeProvider>
