@@ -9,23 +9,25 @@ import KriteriiIsklPage from "../Pages/KriteriiIsklPage";
 import KriteriiPPage from "../Pages/KriteriiPPage";
 import LoginPage from "../Pages/LoginPage";
 import CreatorsPage from "../Pages/CreatorsPage";
-import DepartmentTemplate from '../Pages/department-template/department-template'
-import EventTemplate from '../Pages/event-template/event-template'
-import {departments, events} from '../Constants'
+import DepartmentTemplate from "../Pages/department-template/department-template";
+import EventTemplate from "../Pages/event-template/event-template";
+import { departments, events } from "../сonstants";
 
 function RoutesComponent() {
   const routes = [
     { path: "/", element: <HomePage /> },
     ...departments.map((department) => {
-        return {
-          path: `/${department.short_title}`, element: <DepartmentTemplate departmentName={department.short_title}/>
-        }
+      return {
+        path: `/${department.short_title}`,
+        element: <DepartmentTemplate departmentName={department.short_title} />,
+      };
     }),
-   ...events.map((event) => {
-    return {
-      path: `/${event.short_title}`, element: <EventTemplate eventTitle={event.short_title}/>
-    }
-   }),
+    ...events.map((event) => {
+      return {
+        path: `/${event.short_title}`,
+        element: <EventTemplate eventTitle={event.short_title} />,
+      };
+    }),
     { path: "/dlyapredseda", element: <DlyaPredsedaPage /> },
     { path: "/sovetyactivistu", element: <SovetyActivistuPage /> },
     { path: "/menagement", element: <MenagementPage /> },
