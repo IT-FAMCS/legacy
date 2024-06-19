@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useState } from "react";
 import { Button, TextField, Snackbar, Alert } from "@mui/material";
-import {RegisterData} from '../interfaces/register';
+import { RegisterData } from "../interfaces/register";
 import useAuth from "../hooks/useAuth";
 
 function RegistrationPage() {
@@ -11,7 +11,7 @@ function RegistrationPage() {
     password: "",
     confirmPassword: "",
   });
-  
+
   const [popupOpen, setPopupOpen] = useState(false);
   const [popupMessage, setPopupMessage] = useState("");
   const { register, isAuthenticated } = useAuth();
@@ -30,8 +30,14 @@ function RegistrationPage() {
       return;
     }
     try {
-      await register(formData);
-      setPopupMessage(`Пользователь ${formData.username} зарегистрирован с паролем ${formData.password}`);
+      await register({
+        email: formData.username,
+        username: formData.nickname,
+        password: formData.password,
+      });
+      setPopupMessage(
+        `Пользователь ${formData.username} зарегистрирован с паролем ${formData.password}`
+      );
       setPopupOpen(true);
       setFormData({
         nickname: "",
@@ -45,7 +51,9 @@ function RegistrationPage() {
   };
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(`Логин: ${formData.username}, Пароль: ${formData.password}`);
+    navigator.clipboard.writeText(
+      `Логин: ${formData.username}, Пароль: ${formData.password}`
+    );
   };
 
   return (
@@ -76,7 +84,7 @@ function RegistrationPage() {
           fullWidth
           margin="normal"
         />
-         <TextField
+        <TextField
           label="Confirm Password"
           name="confirmPassword"
           type="password"
@@ -89,7 +97,11 @@ function RegistrationPage() {
           Зарегистрироваться
         </Button>
       </form>
-      <Snackbar open={popupOpen} autoHideDuration={6000} onClose={() => setPopupOpen(false)}>
+      <Snackbar
+        open={popupOpen}
+        autoHideDuration={6000}
+        onClose={() => setPopupOpen(false)}
+      >
         <Alert onClose={() => setPopupOpen(false)} severity="success">
           {popupMessage}
           <Button onClick={handleCopy} color="inherit">
