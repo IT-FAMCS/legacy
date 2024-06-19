@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
-import { departmentsInfo } from "../Constants/departments-info";
-import { eventsInfo } from "../Constants/events-info";
-import { creatorsInfo } from "../Constants/creators-info";
+import { departmentsInfo } from "../сonstants/departments-info";
+import { eventsInfo } from "../сonstants/events-info";
+import { creatorsInfo } from "../сonstants/creators-info";
 
 export const MenuCard = ({
   header,
