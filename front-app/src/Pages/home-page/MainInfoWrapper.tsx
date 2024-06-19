@@ -1,5 +1,5 @@
 import { MainInfoCard } from "../../components/MenuCard";
-import { mainInfo } from "../../constants/main-info";
+import { mainInfo } from "../../сonstants/main-info";
 
 export function MainInfoWrapper() {
   return (

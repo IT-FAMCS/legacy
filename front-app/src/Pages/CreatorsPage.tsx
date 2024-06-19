@@ -1,4 +1,4 @@
-import { creatorsInfo } from "../constants/creators-info";
+import { creatorsInfo } from "../сonstants/creators-info";
 import { CreatorCard } from "../components/MenuCard";
 
 export default function CreatorsPage() {
