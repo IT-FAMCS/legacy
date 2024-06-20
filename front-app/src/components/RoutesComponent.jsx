@@ -8,7 +8,6 @@ import HistoryPage from "../Pages/HistoryPage";
 import KriteriiIsklPage from "../Pages/KriteriiIsklPage";
 import KriteriiPPage from "../Pages/KriteriiPPage";
 import LoginPage from "../Pages/LoginPage";
-import RegistrationPage from "../Pages/RegistrationPage";
 import CreatorsPage from "../Pages/CreatorsPage";
 import DepartmentTemplate from "../Pages/department-template/department-template";
 import EventTemplate from "../Pages/event-template/event-template";
@@ -37,7 +36,6 @@ function RoutesComponent() {
     { path: "/kriteriiiskl", element: <KriteriiIsklPage /> },
     { path: "/kriteriip", element: <KriteriiPPage /> },
     { path: "/login", element: <LoginPage /> },
-    { path: "/registration", element: <RegistrationPage /> },
     { path: "/creators", element: <CreatorsPage /> },
   ];
 
