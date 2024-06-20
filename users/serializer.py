@@ -3,10 +3,6 @@ from .models import user
 from django.contrib.auth import authenticate
 
 
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = user
-        fields = ('token')
 class RegistrationSerializer(serializers.ModelSerializer):
     """
     Creates a new user.

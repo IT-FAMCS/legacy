@@ -46,12 +46,12 @@ class JWTAuthentication(authentication.BaseAuthentication):
             raise exceptions.AuthenticationFailed(msg)
 
         try:
-            User = user.objects.get(pk=payload['id'])
-        except user.DoesNotExist:
+            user = User.objects.get(pk=payload['id'])
+        except User.DoesNotExist:
             msg = 'No user matching this token was found.'
             raise exceptions.AuthenticationFailed(msg)
 
-        if not User.is_active:
+        if not user.is_active:
             msg = 'This user has been deactivated.'
             raise exceptions.AuthenticationFailed(msg)
 
