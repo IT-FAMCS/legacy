@@ -14,6 +14,7 @@ import EventTemplate from "../Pages/event-template/event-template";
 import { departments, events } from "../сonstants";
 import useAuth from "../hooks/useAuth";
 import { useEffect } from "react";
+import RegistrationPage from "../Pages/RegistrationPage";
 
 function RoutesComponent() {
   const { checkToken } = useAuth();
@@ -44,7 +45,7 @@ function RoutesComponent() {
     { path: "/kriteriiiskl", element: <KriteriiIsklPage /> },
     { path: "/kriteriip", element: <KriteriiPPage /> },
     { path: "/login", element: <LoginPage /> },
-    { path: "/registration", element: <LoginPage /> },
+    { path: "/registration", element: <RegistrationPage /> },
     { path: "/creators", element: <CreatorsPage /> },
   ];
 
