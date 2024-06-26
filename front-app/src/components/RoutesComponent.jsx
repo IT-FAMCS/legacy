@@ -12,8 +12,17 @@ import CreatorsPage from "../Pages/CreatorsPage";
 import DepartmentTemplate from "../Pages/department-template/department-template";
 import EventTemplate from "../Pages/event-template/event-template";
 import { departments, events } from "../сonstants";
+import useAuth from "../hooks/useAuth";
+import { useEffect } from "react";
+import RegistrationPage from "../Pages/RegistrationPage";
 
 function RoutesComponent() {
+  const { checkToken } = useAuth();
+
+  useEffect(() => {
+    const result = checkToken(); //!!! потом использовать для блока роутинга, только название норм сделать
+  });
+
   const routes = [
     { path: "/", element: <HomePage /> },
     ...departments.map((department) => {
@@ -36,6 +45,7 @@ function RoutesComponent() {
     { path: "/kriteriiiskl", element: <KriteriiIsklPage /> },
     { path: "/kriteriip", element: <KriteriiPPage /> },
     { path: "/login", element: <LoginPage /> },
+    { path: "/registration", element: <RegistrationPage /> },
     { path: "/creators", element: <CreatorsPage /> },
   ];
 
