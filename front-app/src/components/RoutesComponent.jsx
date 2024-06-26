@@ -44,6 +44,7 @@ function RoutesComponent() {
     { path: "/kriteriiiskl", element: <KriteriiIsklPage /> },
     { path: "/kriteriip", element: <KriteriiPPage /> },
     { path: "/login", element: <LoginPage /> },
+    { path: "/registration", element: <LoginPage /> },
     { path: "/creators", element: <CreatorsPage /> },
   ];
 
