@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   LOGIN_URL,
   LOGOUT_URL,
@@ -9,59 +8,55 @@ import { RegisterData } from "../interfaces/register";
 import { fetchPost } from "../api/FetchPost";
 
 export default function useAuth() {
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
-
-  const login = async (username: string, password: string) => {
+  const login = async (email: string, password: string) => {
     try {
       const response = await fetchPost(LOGIN_URL, {
-        email: username,
+        email,
         password,
       });
-      localStorage.setItem("token", response?.token);
-      setIsAuthenticated(true);
+      if (response.token) {
+        localStorage.setItem("token", response?.token);
+      } // !!!добавть что если запрос фигня -- окрашивать форму в красный типа ошибка (добавлять это в компоненте логина)
     } catch (error) {
       console.error("Login failed:", error);
-      setIsAuthenticated(false);
     }
   };
 
   const logout = async () => {
     try {
       await fetchPost(LOGOUT_URL, {});
-      localStorage.removeItem("token");
-      setIsAuthenticated(false);
+      localStorage.removeItem("token"); //!!! при логауте переводить на страницу логина
     } catch (error) {
       console.error("Logout failed:", error);
     }
   };
 
   const checkToken = async () => {
+    //вызываем когда надо проверить, зашел ли пользователь или нет
     const token = localStorage.getItem("token");
     if (!token) {
-      setIsAuthenticated(false);
       return;
     }
 
     try {
       await fetchPost(CHECK_TOKEN_URL, { token });
-      setIsAuthenticated(true);
     } catch (error) {
       console.error("Token check failed:", error);
-      setIsAuthenticated(false);
     }
   };
 
   const register = async (
-    data: Omit<RegisterData, "confirmPassword" | "nickname">
+    //при регистрации
+    data: Omit<RegisterData, "confirmPassword"> //данные для сервера нужны без подтверждения пароля
   ) => {
     try {
-      const response = await fetchPost(REGISTER_URL, data);
-      console.log(response);
+      const response = await fetchPost(REGISTER_URL, data); // !!!добавть что если запрос фигня -- окрашивать форму в красный типа ошибка (добавлять это в компоненте регистрации)
+      //!!!если вход удачный -- переходить на основную страницу
     } catch (error) {
-      console.error("Registration failed:", error);
+      console.error("Registration failed:", error); //!!! тоже указывать ошибку в форме на странице
       throw error;
     }
   };
 
-  return { isAuthenticated, login, logout, checkToken, register };
+  return { login, logout, checkToken, register };
 }

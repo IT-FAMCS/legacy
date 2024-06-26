@@ -4,20 +4,14 @@ import { Button, TextField } from "@mui/material";
 import useAuth from "../hooks/useAuth";
 
 function LoginPage() {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
   const { login } = useAuth();
 
   const loginSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const res = login(username, password);
-    console.log(res);
-    // if (username !== "correctUsername" || password !== "correctPassword") {
-    //   setError(true);
-    // } else {
-    //   alert("Ура!!!")
-    // }
+    const res = login(email, password);
   };
 
   return (
@@ -27,8 +21,8 @@ function LoginPage() {
     >
       <TextField
         label="Username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
         required
         fullWidth
         margin="normal"

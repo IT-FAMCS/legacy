@@ -1,12 +1,11 @@
 import * as React from "react";
 import { useState } from "react";
 import { Button, TextField, Snackbar, Alert } from "@mui/material";
-import { RegisterData } from "../interfaces/register";
 import useAuth from "../hooks/useAuth";
 
 function RegistrationPage() {
   const [formData, setFormData] = useState({
-    nickname: "",
+    email: "",
     username: "",
     password: "",
     confirmPassword: "",
@@ -14,7 +13,7 @@ function RegistrationPage() {
 
   const [popupOpen, setPopupOpen] = useState(false);
   const [popupMessage, setPopupMessage] = useState("");
-  const { register, isAuthenticated } = useAuth();
+  const { register } = useAuth();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -32,7 +31,7 @@ function RegistrationPage() {
     try {
       await register({
         email: formData.username,
-        username: formData.nickname,
+        username: formData.username,
         password: formData.password,
       });
       setPopupMessage(
@@ -40,7 +39,7 @@ function RegistrationPage() {
       );
       setPopupOpen(true);
       setFormData({
-        nickname: "",
+        email: "",
         username: "",
         password: "",
         confirmPassword: "",
@@ -60,9 +59,9 @@ function RegistrationPage() {
     <div>
       <form onSubmit={handleSubmit} className="registration-form">
         <TextField
-          label="Nickname"
-          name="nickname"
-          value={formData.nickname}
+          label="Email"
+          name="email"
+          value={formData.email}
           onChange={handleChange}
           fullWidth
           margin="normal"

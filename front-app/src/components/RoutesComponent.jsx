@@ -13,8 +13,16 @@ import CreatorsPage from "../Pages/CreatorsPage";
 import DepartmentTemplate from "../Pages/department-template/department-template";
 import EventTemplate from "../Pages/event-template/event-template";
 import { departments, events } from "../сonstants";
+import useAuth from "../hooks/useAuth";
+import { useEffect } from "react";
 
 function RoutesComponent() {
+  const { checkToken } = useAuth();
+
+  useEffect(() => {
+    const result = checkToken(); //!!! потом использовать для блока роутинга, только название норм сделать
+  });
+
   const routes = [
     { path: "/", element: <HomePage /> },
     ...departments.map((department) => {
