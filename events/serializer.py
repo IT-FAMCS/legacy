@@ -17,10 +17,10 @@ class EventSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         links_data = validated_data.pop('links', [])
-        event_name = validated_data.get('short_name')
+        event_name = validated_data.get('short_title')
 
         try:
-            event = Event.objects.get(short_name=event_name)
+            event = Event.objects.get(short_title=event_name)
             for key, value in validated_data.items():
                 setattr(event, key, value)
             event.save()

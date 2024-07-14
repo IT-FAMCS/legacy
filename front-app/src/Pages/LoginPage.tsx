@@ -2,22 +2,29 @@ import * as React from "react";
 import { useState } from "react";
 import { Button, TextField } from "@mui/material";
 import useAuth from "../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(false);
   const { login } = useAuth();
+  const [isBadData, setIsBadData] = useState(false);
 
   const loginSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const res = login(email, password);
+    login(email, password).then((res) => {
+      if (res) {
+        window.location.reload();
+      } else {
+        setIsBadData(true);
+      }
+    });
   };
 
   return (
     <form
       onSubmit={loginSubmit}
-      className={`login-form ${error ? "error" : ""}`}
+      className={`login-form ${isBadData ? "error" : ""}`}
     >
       <TextField
         label="Username"
@@ -26,7 +33,7 @@ function LoginPage() {
         required
         fullWidth
         margin="normal"
-        className={error ? "error" : ""}
+        className={isBadData ? "error" : ""}
       />
       <TextField
         type="password"
@@ -36,12 +43,12 @@ function LoginPage() {
         required
         fullWidth
         margin="normal"
-        className={error ? "error" : ""}
+        className={isBadData ? "error" : ""}
       />
       <Button type="submit" variant="contained" color="primary">
         Войти
       </Button>
-      {error && (
+      {isBadData && (
         <p style={{ color: "red" }}>Логин или пароль введены неверно</p>
       )}
     </form>

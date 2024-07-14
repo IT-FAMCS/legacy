@@ -16,10 +16,10 @@ class DepartmentSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         links_data = validated_data.pop('links', [])
-        depart_name = validated_data.get('short_name')
+        depart_name = validated_data.get('short_title')
 
         try:
-            department = Department.objects.get(short_name=depart_name)
+            department = Department.objects.get(short_title=depart_name)
             for key, value in validated_data.items():
                 setattr(department, key, value)
             department.save()

@@ -8,10 +8,10 @@ class InfoSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     def create(self, validated_data):
-        info_name = validated_data.get('short_name')
+        info_name = validated_data.get('short_title')
 
         try:
-            event = Information.objects.get(short_name=info_name)
+            event = Information.objects.get(short_title=info_name)
             for key, value in validated_data.items():
                 setattr(event, key, value)
             event.save()
