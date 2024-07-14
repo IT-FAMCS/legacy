@@ -12,17 +12,14 @@ import CreatorsPage from "../Pages/CreatorsPage";
 import DepartmentTemplate from "../Pages/department-template/department-template";
 import EventTemplate from "../Pages/event-template/event-template";
 import { departments, events } from "../сonstants";
-import useAuth from "../hooks/useAuth";
-import { useEffect } from "react";
 import RegistrationPage from "../Pages/RegistrationPage";
+import { UserTokenInfo } from "../interfaces/user";
 
-function RoutesComponent() {
-  const { checkToken } = useAuth();
-
-  useEffect(() => {
-    const result = checkToken(); //!!! потом использовать для блока роутинга, только название норм сделать
-  });
-
+function RoutesComponent({
+  userInfo,
+}: {
+  userInfo: UserTokenInfo | undefined;
+}) {
   const routes = [
     { path: "/", element: <HomePage /> },
     ...departments.map((department) => {
@@ -44,17 +41,25 @@ function RoutesComponent() {
     { path: "/history", element: <HistoryPage /> },
     { path: "/kriteriiiskl", element: <KriteriiIsklPage /> },
     { path: "/kriteriip", element: <KriteriiPPage /> },
-    { path: "/login", element: <LoginPage /> },
     { path: "/registration", element: <RegistrationPage /> },
     { path: "/creators", element: <CreatorsPage /> },
+    { path: "*", element: <Navigate to="/" replace /> },
   ];
 
-  return (
+  return userInfo === undefined ? null : ( //loading перенести сюда!!
     <Routes>
-      {routes.map((route, index) => (
-        <Route key={index} path={route.path} element={route.element} />
-      ))}
-      <Route path="*" element={<Navigate to="/" replace />} />
+      {userInfo?.valid
+        ? routes.map((route, index) => (
+            <Route key={index} path={route.path} element={route.element} />
+          ))
+        : [
+            <Route key={"login"} path={"/login"} element={<LoginPage />} />,
+            <Route
+              key={"login-navigate"}
+              path="*"
+              element={<Navigate to="/login" replace />}
+            />,
+          ]}
     </Routes>
   );
 }

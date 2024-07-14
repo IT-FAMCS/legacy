@@ -2,10 +2,12 @@ from rest_framework import status
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from . import models
 
 from .models import user
 from .serializer import LoginSerializer
-from .serializer import RegistrationSerializer
+from .serializer import RegistrationSerializer, UserSerializer
+
 
 class RegistrationAPIView(APIView):
     permission_classes = [AllowAny]
@@ -33,6 +35,7 @@ class LoginAPIView(APIView):
         serializer.is_valid(raise_exception=True)
 
         return Response(serializer.data, status=status.HTTP_200_OK)
+
 class UsersAPIView(APIView):
     model = models.user
     serialier_class = UserSerializer
@@ -61,3 +64,4 @@ class VerifyTokenView(APIView):
             return Response({'valid': False, 'error': 'Token has expired'}, status=status.HTTP_400_BAD_REQUEST)
         except InvalidTokenError:
             return Response({'valid': False, 'error': 'Invalid token'}, status=status.HTTP_400_BAD_REQUEST)
+
