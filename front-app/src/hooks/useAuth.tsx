@@ -16,9 +16,11 @@ export default function useAuth() {
       });
       if (response.token) {
         localStorage.setItem("token", response?.token);
+        return true;
       } // !!!добавть что если запрос фигня -- окрашивать форму в красный типа ошибка (добавлять это в компоненте логина)
     } catch (error) {
       console.error("Login failed:", error);
+      return false;
     }
   };
 
@@ -35,13 +37,14 @@ export default function useAuth() {
     //вызываем когда надо проверить, зашел ли пользователь или нет
     const token = localStorage.getItem("token");
     if (!token) {
-      return;
+      return false;
     }
 
     try {
-      await fetchPost(CHECK_TOKEN_URL, { token });
+      return await fetchPost(CHECK_TOKEN_URL, { token });
     } catch (error) {
       console.error("Token check failed:", error);
+      return false;
     }
   };
 

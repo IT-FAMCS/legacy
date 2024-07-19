@@ -1,36 +1,19 @@
 import { useState } from "react";
 import { DepatmentInfo } from "../../interfaces/department";
 import useDepartment from "../../hooks/useDepartment";
-import { Button } from "@mui/material";
+import { Button, Input } from "@mui/material";
 import { Box } from "@mui/material";
 import { TextField } from "@mui/material";
 
-export function DepartmentForm({}) {
-  const [info, setInfo] = useState<DepatmentInfo>({
-    id: 0,
-    links: [],
-    short_title: "",
-    title: "",
-    description: "",
-    structure: "",
-    work: "",
-    in_events: "",
-    FAQ: "",
-  });
-
-  const [newInfo, setNewInfo] = useState<DepatmentInfo>({
-    id: 0,
-    links: [],
-    short_title: "",
-    title: "",
-    description: "",
-    structure: "",
-    work: "",
-    in_events: "",
-    FAQ: "",
-  });
-
+export function DepartmentForm({
+  departmentInfo,
+}: {
+  departmentInfo: DepatmentInfo;
+}) {
   const { changeDepartment } = useDepartment();
+
+  const [info, setInfo] = useState<DepatmentInfo>(departmentInfo);
+  const [newInfo, setNewInfo] = useState<DepatmentInfo>(departmentInfo);
 
   return (
     <>
@@ -51,16 +34,23 @@ export function DepartmentForm({}) {
           display: "flex",
           flexDirection: "column",
           gap: 2,
-          marginLeft: 50,
-          marginRight: 50,
+          marginLeft: 10,
+          marginRight: 10,
           marginTop: 5,
           marginBottom: 5,
           borderRadius: 2,
         }}
       >
-        {/* <input type="text" name="title" /> */}
+        <Input
+          placeholder="Заголовок"
+          defaultValue={info.description}
+          name="description"
+          onChange={(e) => {
+            setNewInfo({ ...newInfo, title: e.target.value });
+          }}
+        />
         <TextField
-          label="Title"
+          label="Описание"
           defaultValue={info.description}
           name="description"
           onChange={(e) => {
@@ -68,7 +58,7 @@ export function DepartmentForm({}) {
           }}
         />
         <TextField
-          label="Structure"
+          label="Структура"
           multiline
           rows={4}
           defaultValue={info.structure}
@@ -78,7 +68,7 @@ export function DepartmentForm({}) {
           }}
         />
         <TextField
-          label="Work"
+          label="Работа"
           multiline
           rows={4}
           defaultValue={info.work}
@@ -88,7 +78,7 @@ export function DepartmentForm({}) {
           }}
         />
         <TextField
-          label="In events"
+          label="На мероприятиях"
           multiline
           rows={4}
           defaultValue={info.in_events}
@@ -107,7 +97,7 @@ export function DepartmentForm({}) {
             setNewInfo({ ...newInfo, FAQ: e.target.value });
           }}
         />
-        <TextField label="Links" name="links" />
+        <TextField label="Ссылки" name="links" />
       </Box>
     </>
   );

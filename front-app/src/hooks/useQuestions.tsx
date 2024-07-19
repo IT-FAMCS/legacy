@@ -5,11 +5,17 @@ import { QuestionInfo } from "../interfaces/question";
 
 export default function useQuestions() {
   async function changeQuestions({ data }: { data: QuestionInfo }) {
-    return await fetchPost(CREATE_QUESTION, data);
+    return await fetchPost(CREATE_QUESTION, data, {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    });
   }
 
   async function getQuestions(event = "") {
-    return (await fetchGet(GET_QUESTIONS + event)).json();
+    return (
+      await fetchGet(GET_QUESTIONS + event, {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      })
+    ).json();
   }
 
   return { changeQuestions, getQuestions };
