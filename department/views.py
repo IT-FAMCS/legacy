@@ -16,11 +16,18 @@ class DepartmentCreate(generics.CreateAPIView):
     permission_classes = [IsAuthenticated, IsAdminUser]
     queryset = Department.objects.prefetch_related('links').all()
     serializer_class = DepartmentSerializer
+
     def post(self, request, *args, **kwargs):
-        if Department.objects.filter(short_title=kwargs['short_title']):
-            return self.update(request, *args, **kwargs)
+        short_title = request.data.get('short_title')
+        if Department.objects.filter(short_title=short_title).exists():
+            instance = Department.objects.get(short_title=short_title)
+            serializer = self.get_serializer(instance, data=request.data, partial=True)
+            serializer.is_valid(raise_exception=True)
+            self.perform_update(serializer)
+            return Response(serializer.data)
         else:
             return self.create(request, *args, **kwargs)
+
     
 class DepartmentUpdateView(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated, IsAdminUser]
