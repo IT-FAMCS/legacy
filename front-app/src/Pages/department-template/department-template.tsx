@@ -20,7 +20,7 @@ export default function DepartmentTemplate({
   const [departmentInfo, setDepartmentInfo] = useState({
     id: 0,
     links: [],
-    short_title: locale.pathname,
+    short_title: locale.pathname.split("/")[1],
     title: "",
     description: "",
     structure: "",

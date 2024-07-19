@@ -103,7 +103,7 @@ export function DepartmentForm({
             setNewInfo({ ...newInfo, FAQ: e.target.value });
           }}
         />
-        <TextField label="Ссылки" name="links" />
+        <TextField label="Полезные ссылки" name="links" />
       </Box>
     </>
   );

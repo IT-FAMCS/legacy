@@ -4,7 +4,7 @@ export interface EventLink {
 }
 
 export interface EventInfo {
-  id: number;
+  id?: number;
   links: EventLink[];
   short_title: string;
   title: string;
