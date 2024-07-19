@@ -1,4 +1,4 @@
-from rest_framework import generics, viewsets
+from rest_framework import generics, viewsets, mixins
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from .models import Department
 from .serializer import DepartmentSerializer
@@ -12,7 +12,7 @@ class DepartmentList(generics.ListAPIView):
    
 
 
-class DepartmentCreate(generics.CreateAPIView):
+class DepartmentCreate(mixins.UpdateModelMixin, generics.CreateAPIView):
     permission_classes = [IsAuthenticated, IsAdminUser]
     queryset = Department.objects.prefetch_related('links').all()
     serializer_class = DepartmentSerializer
@@ -27,6 +27,9 @@ class DepartmentCreate(generics.CreateAPIView):
             return Response(serializer.data)
         else:
             return self.create(request, *args, **kwargs)
+
+    def perform_update(self, serializer):
+        serializer.save()
 
     
 class DepartmentUpdateView(viewsets.ModelViewSet):
