@@ -1,4 +1,3 @@
-export const CREATE_DEPARTMENT =
-  "http://127.0.0.1:8000/api/departments/create/";
+export const CREATE_DEPARTMENT = `${process.env.REACT_APP_HAND_URL}/api/departments/create/`;
 
-export const GET_DEPARTMENT = "http://127.0.0.1:8000/api/departments/";
+export const GET_DEPARTMENT = `${process.env.REACT_APP_HAND_URL}/api/departments/`;

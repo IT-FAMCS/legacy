@@ -22,7 +22,13 @@ export function DepartmentForm({
         color="primary"
         onClick={() => {
           setInfo({ ...newInfo });
-          changeDepartment({ data: newInfo });
+          changeDepartment({ data: newInfo })
+            .then(() => {
+              window.location.reload();
+            })
+            .catch((e) => {
+              //выводить что что-то не так
+            });
         }}
       >
         Сохранить

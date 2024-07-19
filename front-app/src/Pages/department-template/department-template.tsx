@@ -4,8 +4,8 @@ import { DepartmentForm } from "../forms/DepartmentForm";
 import useDepartment from "../../hooks/useDepartment";
 import { useLocation } from "react-router-dom";
 import { DepartmentInfoComponent } from "./department-info";
-import bbobHTML from "@bbob/html";
-import presetHTML5 from "@bbob/preset-html5";
+import BBCode from "@bbob/react";
+import presetReact from "@bbob/preset-react";
 
 export default function DepartmentTemplate({
   departmentName,
@@ -14,6 +14,7 @@ export default function DepartmentTemplate({
 }) {
   const locale = useLocation();
   const { getDepartments } = useDepartment();
+  const plugins = [presetReact()];
 
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [departmentInfo, setDepartmentInfo] = useState({
@@ -30,13 +31,29 @@ export default function DepartmentTemplate({
 
   useEffect(() => {
     getDepartments(departmentName).then((res) => {
-      setDepartmentInfo(res);
+      if (res.detail) {
+        setDepartmentInfo({
+          id: 0,
+          links: [],
+          short_title: locale.pathname.split("/")[1],
+          title: "",
+          description: "",
+          structure: "",
+          work: "",
+          in_events: "",
+          FAQ: "",
+        });
+      } else {
+        setDepartmentInfo(res);
+      }
     });
   }, []);
 
   return (
-    <>
-      <h2>{bbobHTML(departmentInfo.title, presetHTML5())}</h2>
+    <div className="page-info-wrapper">
+      <div>
+        <BBCode plugins={plugins}>{departmentInfo.title}</BBCode>
+      </div>
       <Button
         onClick={() => {
           setIsFormVisible(!isFormVisible);
@@ -48,6 +65,6 @@ export default function DepartmentTemplate({
       {!isFormVisible && (
         <DepartmentInfoComponent departmentInfo={departmentInfo} />
       )}
-    </>
+    </div>
   );
 }
