@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from .models import Information
 
-class EventSerializer(serializers.ModelSerializer):
+class InfoSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Information
