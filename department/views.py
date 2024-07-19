@@ -9,11 +9,7 @@ class DepartmentList(generics.ListAPIView):
     queryset = Department.objects.prefetch_related('links').all()
     serializer_class = DepartmentSerializer
     
-    def post(self, request, *args, **kwargs):
-        if Department.objects.filter(short_title=kwargs['short_title']):
-            return self.update(request, *args, **kwargs)
-        else:
-            return self.create(request, *args, **kwargs)
+   
 
 
 class DepartmentCreate(generics.CreateAPIView):
@@ -27,6 +23,12 @@ class DepartmentUpdateView(viewsets.ModelViewSet):
     serializer_class = DepartmentSerializer
     
     lookup_field = "short_title"
+    
+    def post(self, request, *args, **kwargs):
+        if Department.objects.filter(short_title=kwargs['short_title']):
+            return self.update(request, *args, **kwargs)
+        else:
+            return self.create(request, *args, **kwargs)
 
     def retrieve(self, request, *args, **kwargs):
         instance = self.get_object()
