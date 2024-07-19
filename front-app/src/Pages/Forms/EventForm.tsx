@@ -1,32 +1,13 @@
 import { useState } from "react";
 import { EventInfo } from "../../interfaces/event";
 import useEvents from "../../hooks/useEvents";
-import { Button } from "@mui/material";
+import { Button, Input } from "@mui/material";
 import { Box } from "@mui/material";
 import { TextField } from "@mui/material";
 
-export function EventForm({}) {
-  const [info, setInfo] = useState<EventInfo>({
-    id: 0,
-    links: [],
-    short_title: "",
-    title: "",
-    description: "",
-    structure: "",
-    work: "",
-    FAQ: "",
-  });
-
-  const [newInfo, setNewInfo] = useState<EventInfo>({
-    id: 0,
-    links: [],
-    short_title: "",
-    title: "",
-    description: "",
-    structure: "",
-    work: "",
-    FAQ: "",
-  });
+export function EventForm({ eventInfo }: { eventInfo: EventInfo }) {
+  const [info, setInfo] = useState<EventInfo>(eventInfo);
+  const [newInfo, setNewInfo] = useState<EventInfo>(eventInfo);
 
   const { changeEvent } = useEvents();
 
@@ -37,7 +18,13 @@ export function EventForm({}) {
         color="primary"
         onClick={() => {
           setInfo({ ...newInfo });
-          changeEvent({ data: newInfo });
+          changeEvent({ data: newInfo })
+            .then(() => {
+              window.location.reload();
+            })
+            .catch((e) => {
+              //выводить что что-то не так
+            });
         }}
       >
         Сохранить
@@ -49,15 +36,23 @@ export function EventForm({}) {
           display: "flex",
           flexDirection: "column",
           gap: 2,
-          marginLeft: 50,
-          marginRight: 50,
+          marginLeft: 10,
+          marginRight: 10,
           marginTop: 5,
           marginBottom: 5,
           borderRadius: 2,
         }}
       >
+        <Input
+          placeholder="Заголовок"
+          defaultValue={info.title}
+          name="title"
+          onChange={(e) => {
+            setNewInfo({ ...newInfo, title: e.target.value });
+          }}
+        />
         <TextField
-          label="Title"
+          label="Описание"
           defaultValue={info.description}
           name="description"
           onChange={(e) => {
@@ -65,7 +60,7 @@ export function EventForm({}) {
           }}
         />
         <TextField
-          label="Structure"
+          label="Структура"
           multiline
           rows={4}
           defaultValue={info.structure}
@@ -75,7 +70,7 @@ export function EventForm({}) {
           }}
         />
         <TextField
-          label="Work"
+          label="Работа"
           multiline
           rows={4}
           defaultValue={info.work}
@@ -94,7 +89,7 @@ export function EventForm({}) {
             setNewInfo({ ...newInfo, FAQ: e.target.value });
           }}
         />
-        <TextField label="Links" name="links" />
+        <TextField label="Полезные ссылки" name="links" />
       </Box>
     </>
   );

@@ -11,11 +11,9 @@ export default function useEvent() {
   }
 
   async function getEvents(event = "") {
-    return (
-      await fetchGet(GET_EVENT + event, {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-      })
-    ).json();
+    return await fetchGet(GET_EVENT + event, {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    });
   }
 
   return { changeEvent, getEvents };

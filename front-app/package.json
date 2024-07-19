@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@bbob/html": "^4.0.3",
+    "@bbob/preset-html5": "^4.0.3",
+    "@bbob/preset-react": "^4.0.3",
+    "@bbob/react": "^4.0.3",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@fontsource/roboto": "^5.0.12",
@@ -16,7 +20,6 @@
     "@types/node": "^16.18.91",
     "@types/react": "^18.2.70",
     "@types/react-dom": "^18.2.22",
-    "bbcode-to-react": "^0.2.9",
     "react": "^18.3.1",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.3",

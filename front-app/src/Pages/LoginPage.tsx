@@ -22,36 +22,39 @@ function LoginPage() {
   };
 
   return (
-    <form
-      onSubmit={loginSubmit}
-      className={`login-form ${isBadData ? "error" : ""}`}
-    >
-      <TextField
-        label="Username"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-        fullWidth
-        margin="normal"
-        className={isBadData ? "error" : ""}
-      />
-      <TextField
-        type="password"
-        label="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
-        fullWidth
-        margin="normal"
-        className={isBadData ? "error" : ""}
-      />
-      <Button type="submit" variant="contained" color="primary">
-        Войти
-      </Button>
-      {isBadData && (
-        <p style={{ color: "red" }}>Логин или пароль введены неверно</p>
-      )}
-    </form>
+    <div className="login-wrapper">
+      <h3>Вход в наследие</h3>
+      <form
+        onSubmit={loginSubmit}
+        className={`login-form ${isBadData ? "error" : ""}`}
+      >
+        <TextField
+          label="Username"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          fullWidth
+          margin="normal"
+          className={isBadData ? "error" : ""}
+        />
+        <TextField
+          type="password"
+          label="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+          fullWidth
+          margin="normal"
+          className={isBadData ? "error" : ""}
+        />
+        <Button type="submit" variant="contained" color="primary">
+          Войти
+        </Button>
+        {isBadData && (
+          <p style={{ color: "red" }}>Логин или пароль введены неверно</p>
+        )}
+      </form>
+    </div>
   );
 }
 

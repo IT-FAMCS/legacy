@@ -10,6 +10,8 @@ interface HeaderProps {
 }
 
 export const HeaderComponent = ({ toggleTheme, themeMode }: HeaderProps) => {
+  const locale = window.location;
+
   return (
     <header className="app-header">
       <div className="app-header__block">
@@ -18,9 +20,13 @@ export const HeaderComponent = ({ toggleTheme, themeMode }: HeaderProps) => {
       </div>
       <div className="app-header__block">
         <Button
-          href={"/"}
+          onClick={() => {
+            if (locale.pathname !== "/") {
+              locale.replace("/");
+            }
+          }}
           variant="outlined"
-          sx={{ color: "white", borderColor: "white", marginX: "10px" }}
+          sx={{ color: "white", borderColor: "white", marginX: "5px" }}
         >
           На главную
         </Button>

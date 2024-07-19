@@ -11,11 +11,21 @@ class InfoSerializer(serializers.ModelSerializer):
         info_name = validated_data.get('short_title')
 
         try:
-            event = Information.objects.get(short_title=info_name)
+            info = Information.objects.get(short_title=info_name)
             for key, value in validated_data.items():
-                setattr(event, key, value)
-            event.save()
+                setattr(info, key, value)
+            info.save()
+
         except Information.DoesNotExist:
             info = Information.objects.create(**validated_data)
                 
         return info
+
+    def update(self, instance, validated_data):
+        
+        for key, value in validated_data.items():
+            setattr(instance, key, value)
+        instance.save()
+
+
+        return instance

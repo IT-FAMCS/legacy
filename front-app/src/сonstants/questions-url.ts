@@ -1,3 +1,2 @@
-
-export const CREATE_QUESTION = "http://127.0.0.1:8000/api/questions/create/";
-export const GET_QUESTIONS = "http://127.0.0.1:8000/api/questions/";
+export const CREATE_QUESTION = `${process.env.REACT_APP_HAND_URL}/api/questions/create/`;
+export const GET_QUESTIONS = `${process.env.REACT_APP_HAND_URL}/api/questions/`;

@@ -22,7 +22,7 @@
 
 .project-name {
   text-align: center;
-  width: 150px;
+  padding-left: 20px;
 }
 .racccon-logo {
   width: 55px;
@@ -72,11 +72,26 @@
 }
 
 .login-form {
-  margin: auto;
+  margin: 0 auto;
   max-width: 400px;
+  height: 300px;
 }
 
 .registration-form {
-  margin: auto;
+  margin: 0 auto;
   max-width: 400px;
+}
+
+.login-wrapper,
+.registration-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 120px);
+  width: 100%;
+  flex-direction: column;
+}
+
+.page-info-wrapper {
+  padding-top: 1rem;
 }
