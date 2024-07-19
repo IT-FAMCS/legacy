@@ -8,6 +8,12 @@ class DepartmentList(generics.ListAPIView):
     permission_classes = [IsAuthenticated, IsAdminUser]
     queryset = Department.objects.prefetch_related('links').all()
     serializer_class = DepartmentSerializer
+    
+    def post(self, request, *args, **kwargs):
+        if Department.objects.filter(short_title=kwargs['short_title']):
+            return self.update(request, *args, **kwargs)
+        else:
+            return self.create(request, *args, **kwargs)
 
 
 class DepartmentCreate(generics.CreateAPIView):
