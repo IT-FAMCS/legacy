@@ -43,8 +43,8 @@ export function DepartmentForm({
       >
         <Input
           placeholder="Заголовок"
-          defaultValue={info.description}
-          name="description"
+          defaultValue={info.title}
+          name="title"
           onChange={(e) => {
             setNewInfo({ ...newInfo, title: e.target.value });
           }}
