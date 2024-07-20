@@ -1,4 +1,4 @@
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes, Navigate, useLocation } from "react-router-dom";
 import HomePage from "../pages/home-page/home-page";
 import LoginPage from "../pages/login-page";
 import CreatorsPage from "../pages/creators-page";
@@ -9,6 +9,8 @@ import RegistrationPage from "../pages/registration-page";
 import { UserTokenInfo } from "../interfaces/user";
 import { mainInfo } from "../constants/all-main-info";
 import MainInfoTemplate from "../pages/main-info-template/main-info-template";
+import { useEffect, useState } from "react";
+import Loader from "./loader";
 
 function RoutesComponent({
   userInfo,
@@ -41,7 +43,22 @@ function RoutesComponent({
     { path: "*", element: <Navigate to="/" replace /> },
   ];
 
-  return userInfo === undefined ? null : ( //loading перенести сюда!!
+  const [loading, setLoading] = useState(true);
+  const { pathname } = useLocation(); //hook for set url pathname
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setLoading(false);
+    }, 800);
+    return () => {
+      setLoading(true);
+      clearTimeout(timeout);
+    };
+  }, [pathname]); //if location pathname changing -> useEffect start work
+
+  return userInfo === undefined || loading ? (
+    <Loader /> //loading перенести сюда!!
+  ) : (
     <Routes>
       {userInfo?.valid
         ? routes.map((route, index) => (

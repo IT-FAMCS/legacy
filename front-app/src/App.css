@@ -95,3 +95,24 @@
 .page-info-wrapper {
   padding-top: 1rem;
 }
+
+.loading {
+  height: calc(100vh - 120px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+figure img {
+  border-radius: 50%;
+}
+
+figure figcaption {
+  font-size: 24px;
+}
