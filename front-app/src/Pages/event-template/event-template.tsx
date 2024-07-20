@@ -45,9 +45,9 @@ export default function EventTemplate({ eventTitle }: { eventTitle: string }) {
 
   return (
     <div className="page-info-wrapper">
-      <div>
+      <h2>
         <BBCode plugins={plugins}>{eventInfo.title}</BBCode>
-      </div>
+      </h2>
       <Button onClick={() => setIsFormVisible(!isFormVisible)}>
         {isFormVisible ? "Скрыть форму" : "Показать форму"}
       </Button>

@@ -6,10 +6,15 @@ main {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: calc(100vh - 120px);
-  text-align: center;
 }
 body {
   margin: 0;
+  overflow: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
 }
 
 code {

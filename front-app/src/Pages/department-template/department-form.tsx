@@ -58,6 +58,7 @@ export function DepartmentForm({
         <TextField
           label="Описание"
           defaultValue={info.description}
+          multiline
           name="description"
           onChange={(e) => {
             setNewInfo({ ...newInfo, description: e.target.value });

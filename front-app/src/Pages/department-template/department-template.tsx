@@ -51,9 +51,9 @@ export default function DepartmentTemplate({
 
   return (
     <div className="page-info-wrapper">
-      <div>
+      <h2>
         <BBCode plugins={plugins}>{departmentInfo.title}</BBCode>
-      </div>
+      </h2>
       <Button
         onClick={() => {
           setIsFormVisible(!isFormVisible);
