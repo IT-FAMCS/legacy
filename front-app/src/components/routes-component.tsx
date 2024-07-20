@@ -44,7 +44,6 @@ function RoutesComponent({
   ];
 
   const [loading, setLoading] = useState(true);
-  const { pathname } = useLocation(); //hook for set url pathname
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -54,7 +53,7 @@ function RoutesComponent({
       setLoading(true);
       clearTimeout(timeout);
     };
-  }, [pathname]); //if location pathname changing -> useEffect start work
+  }, []); //if location pathname changing -> useEffect start work
 
   return userInfo === undefined || loading ? (
     <Loader /> //loading перенести сюда!!
