@@ -56,7 +56,8 @@ function RegistrationPage() {
   };
 
   return (
-    <div>
+    <div className="registration-wrapper">
+      <h3>Регистрация пользователя (в разработке)</h3>
       <form onSubmit={handleSubmit} className="registration-form">
         <TextField
           label="Email"
