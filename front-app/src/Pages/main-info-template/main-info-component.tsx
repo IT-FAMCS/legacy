@@ -5,5 +5,5 @@ export function MainInfoComponent({
 }: {
   mainQuestionInfo: QuestionInfo;
 }) {
-  return <></>;
+  return <p>{mainQuestionInfo.info}</p>;
 }

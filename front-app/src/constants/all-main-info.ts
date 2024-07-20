@@ -5,4 +5,5 @@ export const mainInfo = [
   { short_title: "main-faq" },
   { short_title: "exclusion-criteria" },
   { short_title: "award-criteria" },
+  { short_title: "history" },
 ];

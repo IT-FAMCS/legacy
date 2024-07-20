@@ -1,4 +1,4 @@
-import { Route, Routes, Navigate, useLocation } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import HomePage from "../pages/home-page/home-page";
 import LoginPage from "../pages/login-page";
 import CreatorsPage from "../pages/creators-page";
@@ -31,7 +31,6 @@ function RoutesComponent({
         element: <EventTemplate eventTitle={event.short_title} />,
       };
     }),
-
     ...mainInfo.map((event) => {
       return {
         path: `/${event.short_title}`,

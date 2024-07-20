@@ -11,11 +11,9 @@ export default function useQuestions() {
   }
 
   async function getQuestions(event = "") {
-    return (
-      await fetchGet(GET_QUESTIONS + event, {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-      })
-    ).json();
+    return await fetchGet(GET_QUESTIONS + event, {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    });
   }
 
   return { changeQuestions, getQuestions };

@@ -6,28 +6,28 @@ import BBCode from "@bbob/react";
 import presetReact from "@bbob/preset-react";
 import { MainInfoForm } from "./main-info-form";
 import { MainInfoComponent } from "./main-info-component";
+import useQuestions from "../../hooks/useQuestions";
 
 export default function MainInfoTemplate({
   mainInfoName,
 }: {
   mainInfoName: string;
 }) {
-  const locale = useLocation();
-  const { getDepartments } = useDepartment();
+  const { getQuestions } = useQuestions();
   const plugins = [presetReact()];
 
   const [isFormVisible, setIsFormVisible] = useState(false);
-  const [mainQuestionInfo, setMainQuestionInfotInfo] = useState({
+  const [mainQuestionInfo, setMainQuestionInfo] = useState({
     id: 0,
-    short_title: locale.pathname.split("/")[1],
+    short_title: mainInfoName,
     title: "",
     info: "",
   });
 
   useEffect(() => {
-    getDepartments(mainInfoName).then((res) => {
+    getQuestions(mainInfoName).then((res) => {
       if (!res.detail) {
-        setMainQuestionInfotInfo(res);
+        setMainQuestionInfo(res);
       }
     });
   }, []);
