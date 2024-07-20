@@ -1,12 +1,12 @@
-import { MainInfoCard } from "../../components/MenuCard";
-import { mainInfo } from "../../сonstants/main-info";
+import { MainInfoCard } from "../../components/menu-card";
+import { mainPageInfo } from "../../constants/main-info";
 
 export function MainInfoWrapper() {
   return (
     <>
       <div className="section-name">Общая информация</div>
       <div className="buttons">
-        {mainInfo.map((mainI) => {
+        {mainPageInfo.map((mainI) => {
           return (
             <MainInfoCard
               key={mainI.header}

@@ -1,7 +1,7 @@
 import "../../App.css";
-import { DepartmentsWrapper } from "./DepartmentsWrapper";
-import { EventsWrapper } from "./EventsWrapper";
-import { MainInfoWrapper } from "./MainInfoWrapper";
+import { DepartmentsWrapper } from "./departments-wrapper";
+import { EventsWrapper } from "./events-wrapper";
+import { MainInfoWrapper } from "./main-info-wrapper";
 
 export default function HomePage() {
   return (

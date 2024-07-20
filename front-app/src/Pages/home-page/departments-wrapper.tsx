@@ -1,5 +1,5 @@
-import { departmentsInfo } from "../../сonstants/departments-info";
-import { MenuCard } from "../../components/MenuCard";
+import { departmentsInfo } from "../../constants/departments-info";
+import { MenuCard } from "../../components/menu-card";
 
 export function DepartmentsWrapper() {
   return (

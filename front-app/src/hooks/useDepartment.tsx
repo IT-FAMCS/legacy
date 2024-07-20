@@ -1,6 +1,6 @@
-import { fetchGet } from "../api/FetchGet";
-import { fetchPost } from "../api/FetchPost";
-import { CREATE_DEPARTMENT, GET_DEPARTMENT } from "../сonstants/department-url";
+import { fetchGet } from "../api/fetchGet";
+import { fetchPost } from "../api/fetchPost";
+import { CREATE_DEPARTMENT, GET_DEPARTMENT } from "../constants/department-url";
 import { DepatmentInfo } from "../interfaces/department";
 
 export default function useDepartment() {

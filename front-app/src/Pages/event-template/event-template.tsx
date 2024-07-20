@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { EventForm } from "../forms/EventForm";
+import { EventForm } from "./event-form";
 import { Button } from "@mui/material";
 import { useLocation } from "react-router-dom";
 import useEvent from "../../hooks/useEvents";

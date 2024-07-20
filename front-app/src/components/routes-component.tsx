@@ -1,19 +1,14 @@
 import { Route, Routes, Navigate } from "react-router-dom";
-import HomePage from "../Pages/home-page/HomePage";
-import DlyaPredsedaPage from "../Pages/DlyaPredsedaPage";
-import SovetyActivistuPage from "../Pages/SovetyActivistuPage";
-import MenagementPage from "../Pages/MenagementPage";
-import FAQPage from "../Pages/FAQPage";
-import HistoryPage from "../Pages/HistoryPage";
-import KriteriiIsklPage from "../Pages/KriteriiIsklPage";
-import KriteriiPPage from "../Pages/KriteriiPPage";
-import LoginPage from "../Pages/LoginPage";
-import CreatorsPage from "../Pages/CreatorsPage";
-import DepartmentTemplate from "../Pages/department-template/department-template";
-import EventTemplate from "../Pages/event-template/event-template";
-import { departments, events } from "../сonstants";
-import RegistrationPage from "../Pages/RegistrationPage";
+import HomePage from "../pages/home-page/home-page";
+import LoginPage from "../pages/login-page";
+import CreatorsPage from "../pages/creators-page";
+import DepartmentTemplate from "../pages/department-template/department-template";
+import EventTemplate from "../pages/event-template/event-template";
+import { departments, events } from "../constants";
+import RegistrationPage from "../pages/registration-page";
 import { UserTokenInfo } from "../interfaces/user";
+import { mainInfo } from "../constants/all-main-info";
+import MainInfoTemplate from "../pages/main-info-template/main-info-template";
 
 function RoutesComponent({
   userInfo,
@@ -34,13 +29,13 @@ function RoutesComponent({
         element: <EventTemplate eventTitle={event.short_title} />,
       };
     }),
-    { path: "/dlyapredseda", element: <DlyaPredsedaPage /> },
-    { path: "/sovetyactivistu", element: <SovetyActivistuPage /> },
-    { path: "/menagement", element: <MenagementPage /> },
-    { path: "/faq", element: <FAQPage /> },
-    { path: "/history", element: <HistoryPage /> },
-    { path: "/kriteriiiskl", element: <KriteriiIsklPage /> },
-    { path: "/kriteriip", element: <KriteriiPPage /> },
+
+    ...mainInfo.map((event) => {
+      return {
+        path: `/${event.short_title}`,
+        element: <MainInfoTemplate mainInfoName={event.short_title} />,
+      };
+    }),
     { path: "/registration", element: <RegistrationPage /> },
     { path: "/creators", element: <CreatorsPage /> },
     { path: "*", element: <Navigate to="/" replace /> },

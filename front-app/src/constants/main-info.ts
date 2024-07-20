@@ -1,4 +1,4 @@
-export const mainInfo = [
+export const mainPageInfo = [
   {
     header: "Для председателя",
     link: "/dlyapredseda",
