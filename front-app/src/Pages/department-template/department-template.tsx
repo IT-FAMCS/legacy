@@ -1,6 +1,6 @@
 import { Button } from "@mui/material";
 import { useEffect, useState } from "react";
-import { DepartmentForm } from "../forms/DepartmentForm";
+import { DepartmentForm } from "./department-form";
 import useDepartment from "../../hooks/useDepartment";
 import { useLocation } from "react-router-dom";
 import { DepartmentInfoComponent } from "./department-info";
@@ -51,9 +51,9 @@ export default function DepartmentTemplate({
 
   return (
     <div className="page-info-wrapper">
-      <div>
+      <h2>
         <BBCode plugins={plugins}>{departmentInfo.title}</BBCode>
-      </div>
+      </h2>
       <Button
         onClick={() => {
           setIsFormVisible(!isFormVisible);

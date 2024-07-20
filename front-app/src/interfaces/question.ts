@@ -1,10 +1,6 @@
 export interface QuestionInfo {
+  id?: number;
   short_title: string;
-  boss_info: string;
-  advises: string;
-  how_to: string;
-  FAQ: string;
-  treatment: string;
-  exclusion: string;
-  history: string;
+  title: string;
+  info: string;
 }

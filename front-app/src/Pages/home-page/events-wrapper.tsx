@@ -1,5 +1,5 @@
-import { EventCard } from "../../components/MenuCard";
-import { eventsInfo } from "../../сonstants/events-info";
+import { EventCard } from "../../components/menu-card";
+import { eventsInfo } from "../../constants/events-info";
 
 export function EventsWrapper() {
   return (

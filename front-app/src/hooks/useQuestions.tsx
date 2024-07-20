@@ -1,6 +1,6 @@
-import { fetchGet } from "../api/FetchGet";
-import { fetchPost } from "../api/FetchPost";
-import { CREATE_QUESTION, GET_QUESTIONS } from "../сonstants/questions-url";
+import { fetchGet } from "../api/fetchGet";
+import { fetchPost } from "../api/fetchPost";
+import { CREATE_QUESTION, GET_QUESTIONS } from "../constants/questions-url";
 import { QuestionInfo } from "../interfaces/question";
 
 export default function useQuestions() {
@@ -11,11 +11,9 @@ export default function useQuestions() {
   }
 
   async function getQuestions(event = "") {
-    return (
-      await fetchGet(GET_QUESTIONS + event, {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-      })
-    ).json();
+    return await fetchGet(GET_QUESTIONS + event, {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    });
   }
 
   return { changeQuestions, getQuestions };

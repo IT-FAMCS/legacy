@@ -1,6 +1,6 @@
-import { fetchGet } from "../api/FetchGet";
-import { fetchPost } from "../api/FetchPost";
-import { CREATE_EVENT, GET_EVENT } from "../сonstants/events-url";
+import { fetchGet } from "../api/fetchGet";
+import { fetchPost } from "../api/fetchPost";
+import { CREATE_EVENT, GET_EVENT } from "../constants/events-url";
 import { EventInfo } from "../interfaces/event";
 
 export default function useEvent() {

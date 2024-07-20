@@ -3,9 +3,9 @@ import {
   LOGOUT_URL,
   CHECK_TOKEN_URL,
   REGISTER_URL,
-} from "../сonstants/auth-url";
+} from "../constants/auth-url";
 import { RegisterData } from "../interfaces/register";
-import { fetchPost } from "../api/FetchPost";
+import { fetchPost } from "../api/fetchPost";
 
 export default function useAuth() {
   const login = async (email: string, password: string) => {

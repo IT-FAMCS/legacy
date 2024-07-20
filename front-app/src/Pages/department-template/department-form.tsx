@@ -50,6 +50,7 @@ export function DepartmentForm({
         <Input
           placeholder="Заголовок"
           defaultValue={info.title}
+          multiline
           name="title"
           onChange={(e) => {
             setNewInfo({ ...newInfo, title: e.target.value });
@@ -58,6 +59,7 @@ export function DepartmentForm({
         <TextField
           label="Описание"
           defaultValue={info.description}
+          multiline
           name="description"
           onChange={(e) => {
             setNewInfo({ ...newInfo, description: e.target.value });
@@ -66,7 +68,6 @@ export function DepartmentForm({
         <TextField
           label="Структура"
           multiline
-          rows={4}
           defaultValue={info.structure}
           name="structure"
           onChange={(e) => {
@@ -76,7 +77,6 @@ export function DepartmentForm({
         <TextField
           label="Работа"
           multiline
-          rows={4}
           defaultValue={info.work}
           name="work"
           onChange={(e) => {
@@ -86,7 +86,6 @@ export function DepartmentForm({
         <TextField
           label="На мероприятиях"
           multiline
-          rows={4}
           defaultValue={info.in_events}
           name="in_events"
           onChange={(e) => {
@@ -96,7 +95,6 @@ export function DepartmentForm({
         <TextField
           label="FAQ"
           multiline
-          rows={4}
           defaultValue={info.FAQ}
           name="FAQ"
           onChange={(e) => {

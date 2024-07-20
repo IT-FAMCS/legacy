@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 import "./App.css";
 
-import RoutesComponent from "./components/RoutesComponent";
-import { HeaderComponent } from "./components/Header";
-import Footer from "./components/Footer";
+import RoutesComponent from "./components/routes-component";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import { darkTheme, lightTheme } from "./сonstants/themes";
+import { darkTheme, lightTheme } from "./constants/themes";
 import useAuth from "./hooks/useAuth";
 import { UserTokenInfo } from "./interfaces/user";
+import Footer from "./components/footer";
+import { HeaderComponent } from "./components/header";
 
 function App() {
   const [themeMode, setThemeMode] = useState(() => {
@@ -44,8 +44,7 @@ function App() {
             <RoutesComponent userInfo={user} />
           </BrowserRouter>
         </main>
-
-        <Footer></Footer>
+        <Footer />
       </div>
     </ThemeProvider>
   );

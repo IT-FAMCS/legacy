@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { EventForm } from "../forms/EventForm";
+import { EventForm } from "./event-form";
 import { Button } from "@mui/material";
 import { useLocation } from "react-router-dom";
 import useEvent from "../../hooks/useEvents";
@@ -45,9 +45,9 @@ export default function EventTemplate({ eventTitle }: { eventTitle: string }) {
 
   return (
     <div className="page-info-wrapper">
-      <div>
+      <h2>
         <BBCode plugins={plugins}>{eventInfo.title}</BBCode>
-      </div>
+      </h2>
       <Button onClick={() => setIsFormVisible(!isFormVisible)}>
         {isFormVisible ? "Скрыть форму" : "Показать форму"}
       </Button>
